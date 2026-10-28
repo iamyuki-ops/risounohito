@@ -713,6 +713,99 @@ footer{
   .funnel-number{font-size:clamp(17px,5vw,24px)}
   .range-tick{font-size:9px}
 }
+
+  
+/* 清潔感チェック向けアフィリエイト */
+
+.clean-affiliate-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.clean-affiliate-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px solid #ece8f0;
+}
+
+.clean-affiliate-item:last-child {
+  border-bottom: none;
+}
+
+.clean-affiliate-image {
+  width: 105px;
+  flex-shrink: 0;
+}
+
+.clean-affiliate-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 140px;
+  object-fit: contain;
+}
+
+.clean-affiliate-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.clean-affiliate-title {
+  display: block;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.65;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.clean-affiliate-category {
+  display: inline-block;
+  margin-bottom: 7px;
+  padding: 4px 7px;
+  background: var(--light);
+  border-radius: 6px;
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.clean-affiliate-price {
+  margin: 7px 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.clean-affiliate-button {
+  display: inline-block;
+  padding: 9px 12px;
+  border: 1px solid var(--purple);
+  border-radius: 9px;
+  color: var(--purple);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 530px) {
+  .clean-affiliate-image {
+    width: 78px;
+  }
+
+  .clean-affiliate-item {
+    gap: 10px;
+  }
+
+  .clean-affiliate-title {
+    font-size: 12px;
+  }
+}
+
+  
 </style>
 </head>
 
@@ -1190,6 +1283,30 @@ footer{
     </div>
 
   </div>
+
+<!-- 清潔感チェック向け楽天広告 -->
+<div class="panel clean-affiliate-panel">
+  <div class="pr-heading">
+    <h2>清潔感アップのためのアイテム</h2>
+    <span class="pr-badge">PR・広告</span>
+  </div>
+
+  <p class="note muted">
+    身だしなみを整えるためのアイテムや、
+    恋愛について考えるための本を紹介しています。
+  </p>
+
+  <div id="cleanAffiliateList"
+       class="clean-affiliate-list"></div>
+
+  <p class="note muted">
+    ※ 楽天アフィリエイト広告を含みます。
+    商品価格や送料は変更される場合があります。
+    最新の情報は販売ページをご確認ください。
+  </p>
+</div>
+
+  
 
 </section>
 
@@ -4013,6 +4130,204 @@ $("openMethod").onclick=()=>show("method");
 paintSelections();
 updateMedianDisplays();
 buildCleanQuestions();
+
+  
+/* ====================================
+   清潔感チェック向け楽天広告
+==================================== */
+
+const CLEAN_AFFILIATE_PRODUCTS = [
+  {
+    category: "ヘアケア",
+    title:
+      "クリアフォーメン オールインワン " +
+      "ポンプ＋つめかえセット",
+    price: "掲載時：1,452円（税込・送料無料）",
+    url:
+      "https://hb.afl.rakuten.co.jp/ichiba/" +
+      "3912fb16.3995129c.3912fb17.94728a5d/" +
+      "?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F" +
+      "rakuten24%2F9000010023113%2F" +
+      "&link_type=picttext",
+    image:
+      "https://hbb.afl.rakuten.co.jp/hgb/" +
+      "3912fb16.3995129c.3912fb17.94728a5d/" +
+      "?me_id=1261122&item_id=11153512" +
+      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp" +
+      "%2F%400_mall%2Frakuten24%2Fcabinet%2F113" +
+      "%2F9000010023113.jpg%3F_ex%3D240x240" +
+      "&s=240x240&t=picttext"
+  },
+  {
+    category: "スキンケア",
+    title:
+      "SHISEIDO MEN アルティミューン " +
+      "トライアルキット S",
+    price: "掲載時：5,500円（税込・送料無料）",
+    url:
+      "https://hb.afl.rakuten.co.jp/ichiba/" +
+      "58ea49a8.c9fd2507.58ea49a9.d4e2c5cd/" +
+      "?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F" +
+      "shiseidomen%2Fsmn0024%2F" +
+      "&link_type=picttext",
+    image:
+      "https://hbb.afl.rakuten.co.jp/hgb/" +
+      "58ea49a8.c9fd2507.58ea49a9.d4e2c5cd/" +
+      "?me_id=1423718&item_id=10000066" +
+      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp" +
+      "%2F%400_mall%2Fshiseidomen%2Fcabinet" +
+      "%2Fprd%2Fsmn0024%2Fsmn0024_restock.jpg" +
+      "%3F_ex%3D240x240&s=240x240&t=picttext"
+  },
+  {
+    category: "オーラルケア",
+    title:
+      "デンティス 歯磨き粉 " +
+      "チューブタイプ 100g",
+    price: "掲載時：1,848円（税込・送料無料）",
+    url:
+      "https://hb.afl.rakuten.co.jp/ichiba/" +
+      "58ea4b32.17c2d98f.58ea4b33.bf3cbbbc/" +
+      "?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F" +
+      "daikanyama-st%2F825937%2F" +
+      "&link_type=picttext",
+    image:
+      "https://hbb.afl.rakuten.co.jp/hgb/" +
+      "58ea4b32.17c2d98f.58ea4b33.bf3cbbbc/" +
+      "?me_id=1206375&item_id=10001695" +
+      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp" +
+      "%2F%400_mall%2Fdaikanyama-st%2Fcabinet" +
+      "%2F04743063%2Fdentis%2Fthum%2F825937.jpg" +
+      "%3F_ex%3D240x240&s=240x240&t=picttext"
+  },
+  {
+    category: "ボディケア",
+    title:
+      "デオコ 薬用ボディクレンズ 350ml",
+    price: "掲載時：1,045円（税込・送料別）",
+    url:
+      "https://hb.afl.rakuten.co.jp/ichiba/" +
+      "3912fb16.3995129c.3912fb17.94728a5d/" +
+      "?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F" +
+      "rakuten24%2Fe538352h%2F" +
+      "&link_type=picttext",
+    image:
+      "https://hbb.afl.rakuten.co.jp/hgb/" +
+      "3912fb16.3995129c.3912fb17.94728a5d/" +
+      "?me_id=1261122&item_id=10639108" +
+      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp" +
+      "%2F%400_mall%2Frakuten24%2Fcabinet" +
+      "%2F679%2F4987241157679.jpg" +
+      "%3F_ex%3D240x240&s=240x240&t=picttext"
+  },
+  {
+    category: "恋愛・社会学",
+    title:
+      "モテる構造 ──男と女の社会学 " +
+      "【電子書籍】山田昌弘",
+    price: "掲載時：814円",
+    url:
+      "https://hb.afl.rakuten.co.jp/ichiba/" +
+      "58ea4ce0.4dace414.58ea4ce1.0ae02bf9/" +
+      "?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F" +
+      "rakutenkobo-ebooks%2F" +
+      "fc5f169dae863231b9a020abf5db4389%2F" +
+      "&link_type=picttext",
+    image:
+      "https://hbb.afl.rakuten.co.jp/hgb/" +
+      "58ea4ce0.4dace414.58ea4ce1.0ae02bf9/" +
+      "?me_id=1278256&item_id=16017805" +
+      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp" +
+      "%2F%400_mall%2Frakutenkobo-ebooks%2Fcabinet" +
+      "%2F4346%2F2000004794346.jpg" +
+      "%3F_ex%3D240x240&s=240x240&t=picttext"
+  },
+  {
+    category: "ユーモア",
+    title:
+      "俺流総本家 着るだけでモテまくるTシャツ",
+    price: "掲載時：2,480円～（税込・送料無料）",
+    url:
+      "https://hb.afl.rakuten.co.jp/ichiba/" +
+      "58ea4db4.85b80ca5.58ea4db5.f44319a3/" +
+      "?pc=https%3A%2F%2Fitem.rakuten.co.jp%2F" +
+      "auc-taiyou-sya%2Fkg-00001%2F" +
+      "&link_type=picttext",
+    image:
+      "https://hbb.afl.rakuten.co.jp/hgb/" +
+      "58ea4db4.85b80ca5.58ea4db5.f44319a3/" +
+      "?me_id=1259200&item_id=10102020" +
+      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp" +
+      "%2F%400_mall%2Fauc-taiyou-sya%2Fcabinet" +
+      "%2Fgoroku%2Ftop-4%2Fkg-00001.jpg" +
+      "%3F_ex%3D240x240&s=240x240&t=picttext"
+  }
+];
+
+function renderCleanAffiliate() {
+  const container = document.getElementById(
+    "cleanAffiliateList"
+  );
+
+  if (!container) return;
+
+  container.replaceChildren();
+
+  CLEAN_AFFILIATE_PRODUCTS.forEach(product => {
+    const item = document.createElement("div");
+    item.className = "clean-affiliate-item";
+
+    const cover = document.createElement("a");
+    cover.className = "clean-affiliate-image";
+    cover.href = product.url;
+    cover.target = "_blank";
+    cover.rel = "nofollow sponsored noopener noreferrer";
+
+    const image = document.createElement("img");
+    image.src = product.image;
+    image.alt = product.title;
+    image.loading = "lazy";
+
+    image.onerror = () => {
+      image.style.display = "none";
+      cover.textContent = "商品を見る";
+    };
+
+    cover.appendChild(image);
+
+    const body = document.createElement("div");
+    body.className = "clean-affiliate-body";
+
+    const category = document.createElement("span");
+    category.className = "clean-affiliate-category";
+    category.textContent = product.category;
+
+    const title = document.createElement("a");
+    title.className = "clean-affiliate-title";
+    title.href = product.url;
+    title.target = "_blank";
+    title.rel = cover.rel;
+    title.textContent = product.title;
+
+    const price = document.createElement("div");
+    price.className = "clean-affiliate-price";
+    price.textContent = product.price;
+
+    const button = document.createElement("a");
+    button.className = "clean-affiliate-button";
+    button.href = product.url;
+    button.target = "_blank";
+    button.rel = cover.rel;
+    button.textContent = "PR｜楽天で見る";
+
+    body.append(category, title, price, button);
+    item.append(cover, body);
+    container.appendChild(item);
+  });
+}
+
+renderCleanAffiliate();
+
 
 </script>
 </body>
