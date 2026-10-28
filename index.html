@@ -503,7 +503,6 @@ summary{padding:12px;font-weight:700;cursor:pointer}
  title : 書名
  item  : 楽天ブックスの商品ID
  image : 楽天公式の画像付き広告URL
- comment : 運営者のひとこと
 
  書籍を削除するときは、その { ... } を削除。
  追加するときは同じ形式で追加。
@@ -818,7 +817,6 @@ function renderAffiliate(){
 
     const label = document.createElement("div");
     label.className = "pr-comment-label";
-    label.textContent = "運営者のひとこと";
 
     const message = document.createElement("div");
     message.textContent = book.comment || "";
