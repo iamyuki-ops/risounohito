@@ -806,6 +806,612 @@ footer{
 }
 
   
+/* ==========================================
+   LOVE QUEST
+   RETRO RPG × GACHA THEME
+   既存CSSの最後に追加
+========================================== */
+
+:root {
+  --purple: #a887ff;
+  --purple-dark: #8160db;
+  --light: #302449;
+  --bg: #151123;
+  --border: #7861ac;
+  --text: #f8f5ff;
+  --muted: #c4b9d8;
+  --green: #83e2bd;
+  --red: #ff9bb1;
+}
+
+body {
+  background:
+    radial-gradient(
+      ellipse at top,
+      #342354 0%,
+      #151123 55%,
+      #100d1c 100%
+    );
+  color: var(--text);
+  min-height: 100vh;
+}
+
+main {
+  max-width: 760px;
+}
+
+/* レトロゲーム風タイトル */
+
+header {
+  position: relative;
+  padding: 24px 19px;
+  background: #261c3e;
+  border: 3px solid #9f83ea;
+  border-radius: 6px;
+  box-shadow:
+    5px 5px 0 #090713,
+    inset 0 0 0 3px #3b2b61;
+}
+
+header::before {
+  content: "LOVE QUEST / RETRO MODE";
+  display: block;
+  margin-bottom: 13px;
+  color: #e1c17a;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .13em;
+}
+
+header h1 {
+  font-size: clamp(25px, 6vw, 35px);
+  color: #fff;
+  text-shadow: 3px 3px 0 #6346a1;
+}
+
+.header-subtitle {
+  color: #d9c9fa;
+}
+
+/* RPGメニュー */
+
+.tabs {
+  gap: 7px;
+  margin: 21px 0;
+}
+
+.tab {
+  background: #261c3e;
+  border: 2px solid #69518f;
+  border-radius: 5px;
+  color: #d9c9fa;
+  box-shadow: 3px 3px 0 #0b0815;
+  transition:
+    transform .15s,
+    background .15s,
+    box-shadow .15s;
+}
+
+.tab.active {
+  background: #825ce0;
+  border-color: #d9c1ff;
+  color: #fff;
+  box-shadow:
+    0 0 14px #9067ef55,
+    3px 3px 0 #0b0815;
+}
+
+.tab:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+/* ステータスウィンドウ */
+
+.panel {
+  background: #251c3b;
+  border: 2px solid #775ca9;
+  border-radius: 7px;
+  box-shadow:
+    5px 5px 0 #0c0917,
+    inset 0 0 0 2px #302448;
+  margin: 18px 0;
+}
+
+.panel h2 {
+  color: #f5e8ff;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #8065b0;
+}
+
+.panel h2::before {
+  content: "◆ ";
+  color: #e7c47b;
+}
+
+h3 {
+  color: #f8f1ff;
+}
+
+.muted,
+.note,
+.section-subtitle {
+  color: #c4b9d8;
+}
+
+/* 選択ボタン */
+
+.chip {
+  background: #332649;
+  border: 2px solid #735aa3;
+  border-radius: 5px;
+  color: #ede5ff;
+  font-weight: 650;
+  box-shadow: 2px 2px 0 #100c1d;
+  transition:
+    transform .12s,
+    background .12s;
+}
+
+.chip:hover {
+  transform: translateY(-2px);
+  background: #473366;
+}
+
+.chip.on {
+  background: #8b65e4;
+  border-color: #eadcff;
+  color: #fff;
+  box-shadow:
+    0 0 10px #9f80fa44,
+    2px 2px 0 #100c1d;
+}
+
+/* スライダー */
+
+.rail {
+  background: #514269;
+}
+
+.fill {
+  background: linear-gradient(
+    90deg,
+    #8560e7,
+    #c6a5ff
+  );
+  box-shadow: 0 0 9px #a17ef480;
+}
+
+.thumb {
+  background: #f4e7ff;
+  border-color: #ae89ff;
+  box-shadow:
+    0 0 0 3px #392750,
+    0 0 10px #b58bff55;
+}
+
+.range-head strong {
+  color: #dfc3ff;
+}
+
+.range-tick {
+  color: #bdb2d0;
+}
+
+.range-tick::before {
+  background: #917caf;
+}
+
+.range-median {
+  background: #ffcf75;
+  box-shadow: 0 0 7px #ffcf7580;
+}
+
+.median-info {
+  color: #ffda94;
+}
+
+.ends {
+  color: #c4b9d8;
+}
+
+/* メインアクション */
+
+.primary {
+  border: 2px solid #e4d3ff;
+  border-radius: 5px;
+  background: linear-gradient(
+    180deg,
+    #ae86ff,
+    #7952dc
+  );
+  color: #fff;
+  font-weight: 850;
+  box-shadow:
+    0 5px 0 #493184,
+    0 0 15px #9a78e730;
+  transition:
+    transform .12s,
+    box-shadow .12s;
+}
+
+.primary:hover:not(:disabled) {
+  background: linear-gradient(
+    180deg,
+    #bd9cff,
+    #8c63e9
+  );
+  transform: translateY(-2px);
+}
+
+.primary:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #493184;
+}
+
+.secondary-button {
+  background: #322448;
+  border: 2px solid #a887ff;
+  border-radius: 5px;
+  color: #e1d0ff;
+}
+
+/* タグ */
+
+.tag {
+  background: #483266;
+  color: #e6d3ff;
+  border: 1px solid #9c7bd3;
+  border-radius: 4px;
+}
+
+/* 逆ピラミッドは形を維持 */
+
+.marriage-funnel {
+  padding-top: 15px;
+}
+
+.funnel-stage {
+  position: relative;
+  border-radius: 0;
+  filter: drop-shadow(0 3px 5px #0004);
+}
+
+.funnel-number {
+  letter-spacing: -.025em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 結果カード */
+
+.diagnosis-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      #655095,
+      #342348 55%,
+      #211833
+    );
+  border: 3px solid #d8b96a;
+  border-radius: 6px;
+  padding: 27px 15px;
+  box-shadow:
+    inset 0 0 0 3px #6b4e77,
+    0 0 19px #e3bd6c25;
+}
+
+.diagnosis-card::before {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  top: -80px;
+  right: -80px;
+  background: #fff4b022;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.diagnosis-id {
+  color: #e7c984;
+}
+
+.diagnosis-name {
+  color: #fff;
+  text-shadow: 2px 2px 0 #694da0;
+}
+
+.diagnosis-catch {
+  color: #f5e0ff;
+}
+
+.diagnosis-kind {
+  color: #e1d4f5;
+}
+
+.diagnosis-reason {
+  background: #322448;
+  color: #d8c9eb;
+  border: 1px solid #7155a3;
+  border-radius: 5px;
+}
+
+/* ガチャレア度 */
+
+.gacha-rarity {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 8px 21px;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  font-size: 28px;
+  font-weight: 950;
+  letter-spacing: .13em;
+  box-shadow: 3px 3px 0 #120d20;
+  animation: rarity-appear .55s ease-out both;
+}
+
+.gacha-rarity[data-rarity="N"] {
+  color: #e1dce9;
+  background: #564d68;
+}
+
+.gacha-rarity[data-rarity="R"] {
+  color: #bceaff;
+  background: #25486b;
+}
+
+.gacha-rarity[data-rarity="SR"] {
+  color: #eacbff;
+  background: #62428e;
+}
+
+.gacha-rarity[data-rarity="SSR"] {
+  color: #ffdf88;
+  background: #79522d;
+  text-shadow: 0 0 10px #ffdf88aa;
+  box-shadow:
+    0 0 20px #ffd76c70,
+    3px 3px 0 #120d20;
+}
+
+.gacha-rarity-caption {
+  color: #decda9;
+  font-size: 11px;
+  letter-spacing: .08em;
+  margin-bottom: 10px;
+}
+
+@keyframes rarity-appear {
+  from {
+    opacity: 0;
+    transform: scale(.75) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 条件緩和・婚活手段 */
+
+.relax-base,
+.forecast-row,
+.empty-info {
+  background: #332648;
+  border: 1px solid #6f5799;
+  border-radius: 5px;
+}
+
+.relax-base-number,
+.relax-number strong,
+.activity-count,
+.forecast-row strong {
+  color: #e5c8ff;
+}
+
+.relax-item,
+.activity-item,
+.clean-advice {
+  border-bottom-color: #514066;
+}
+
+.relax-plus {
+  color: #95e9c5;
+}
+
+.activity-item.none {
+  background: #352749;
+}
+
+.activity-track {
+  background: #50415f;
+}
+
+.activity-fill {
+  background: #ac87ff;
+}
+
+/* 子ども希望グラフ */
+
+.pie-hole {
+  background: #251c3b;
+}
+
+.pie-hole small {
+  color: #c4b9d8;
+}
+
+.pie-hole strong {
+  color: #e2c3ff;
+}
+
+/* 清潔感チェック */
+
+.clean-intro {
+  background: linear-gradient(
+    145deg,
+    #412e65,
+    #251b3b
+  );
+  border: 2px solid #9673d1;
+  border-radius: 6px;
+}
+
+.clean-progress-track {
+  background: #514063;
+}
+
+.clean-progress-fill {
+  background: linear-gradient(
+    90deg,
+    #9771ef,
+    #dec1ff
+  );
+}
+
+.clean-option {
+  background: #302442;
+  border: 2px solid #685287;
+  border-radius: 5px;
+  transition:
+    background .12s,
+    border-color .12s;
+}
+
+.clean-option:has(input:checked) {
+  background: #503476;
+  border-color: #c39dff;
+}
+
+.clean-option input {
+  accent-color: #b394ff;
+}
+
+.clean-question {
+  border-bottom-color: #5d4878;
+}
+
+.clean-result-hero {
+  background: #35264e;
+  border: 2px solid #a27be5;
+  border-radius: 6px;
+}
+
+.clean-score {
+  color: #ffdb8b;
+  text-shadow: 2px 2px 0 #654c40;
+}
+
+.clean-score small {
+  color: #d7c3eb;
+}
+
+.clean-score-track {
+  background: #594775;
+}
+
+.clean-score-fill {
+  background: #d9b577;
+}
+
+.clean-feedback {
+  color: #e7dbf6;
+}
+
+/* シェア・広告 */
+
+.share-x {
+  border-radius: 5px;
+}
+
+.share-copy {
+  background: #322448;
+  color: #e6d3ff;
+  border-color: #a887ff;
+  border-radius: 5px;
+}
+
+.pr-comment {
+  background: #37294f;
+  color: #e8dcf6;
+}
+
+.pr-title,
+.clean-affiliate-title {
+  color: #f7efff;
+}
+
+.pr-button,
+.clean-affiliate-button {
+  color: #e1c9ff;
+  border-color: #a887ff;
+  background: #322448;
+}
+
+.pr-badge {
+  background: #654b80;
+  color: #fff;
+}
+
+.clean-affiliate-category {
+  background: #4b3568;
+  color: #ead7ff;
+}
+
+.clean-affiliate-item,
+.pr-book {
+  border-bottom-color: #58436e;
+}
+
+.clean-affiliate-price {
+  color: #c4b9d8;
+}
+
+/* 算出方法 */
+
+details {
+  background: #302442;
+  border: 1px solid #72569a;
+  border-radius: 5px;
+}
+
+summary {
+  color: #f4e8ff;
+}
+
+.detail {
+  color: #d5c8e8;
+}
+
+.method-warning {
+  background: #38294f;
+  border: 1px solid #8566bd;
+  border-radius: 5px;
+}
+
+a {
+  color: #d7b9ff;
+}
+
+footer {
+  color: #b9acca;
+}
+
+/* アニメーションを抑えたい設定 */
+
+@media (prefers-reduced-motion: reduce) {
+  .tab,
+  .chip,
+  .primary,
+  .gacha-rarity {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+  
 </style>
 </head>
 
@@ -971,6 +1577,20 @@ footer{
     <h2>あなたの理想診断</h2>
 
     <div class="diagnosis-card">
+
+<!-- ガチャ風レア度表示 -->
+<div id="gachaRarity"
+     class="gacha-rarity"
+     data-rarity="N"
+     aria-label="理想条件のレア度">
+  N
+</div>
+
+<div class="gacha-rarity-caption">
+  IDEAL RARITY / 理想のレア度
+</div>
+
+      
       <div class="diagnosis-id" id="diagnosisId">
         TYPE — / 16
       </div>
@@ -3201,6 +3821,54 @@ function determineDiagnosis(current,options){
   };
 }
 
+
+/* ====================================
+   理想条件のレア度判定
+   現行モデル上の希少性による演出
+==================================== */
+
+function calculateIdealRarity(current){
+
+  const baseline=diagnosisBaseline();
+
+  if(baseline<=0){
+    return "N";
+  }
+
+  const ratio=current/baseline;
+
+  if(ratio<0.001){
+    return "SSR";
+  }
+
+  if(ratio<0.01){
+    return "SR";
+  }
+
+  if(ratio<0.1){
+    return "R";
+  }
+
+  return "N";
+}
+
+function updateIdealRarity(current){
+
+  const rarity=calculateIdealRarity(current);
+  const element=$("gachaRarity");
+
+  if(!element)return;
+
+  element.textContent=rarity;
+  element.dataset.rarity=rarity;
+
+  // 再診断時にも表示アニメーションを実行
+  element.style.animation="none";
+  void element.offsetWidth;
+  element.style.animation="";
+}
+
+  
 function renderDiagnosis(data){
   $("diagnosisId").textContent=
     "TYPE "+
@@ -3408,9 +4076,11 @@ function renderResults(){
   latestResult=data;
   latestDiagnosis=diagnosis;
 
-  renderFunnel(data);
-  renderDiagnosis(diagnosis);
-  renderRelax(data.current,options);
+
+renderFunnel(data);
+renderDiagnosis(diagnosis);
+updateIdealRarity(data.current);
+renderRelax(data.current,options);
   renderActivities(data);
   renderChildPie(data);
 
