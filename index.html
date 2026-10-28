@@ -1,48 +1,46 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>理想の人、何人いる？</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f8f7fb;color:#27243c;font:14px system-ui,sans-serif}
-main{max-width:740px;margin:auto;padding:22px 15px 60px}
-h1{font-size:29px;margin:0}
-h2{font-size:17px;margin:0 0 15px}
+body{margin:0;background:#f8f7fb;color:#28253b;font:14px system-ui,-apple-system,sans-serif}
+main{max-width:740px;margin:auto;padding:24px 15px 64px}
+h1{margin:0;font-size:28px;letter-spacing:-.5px}
+h2{font-size:16px;margin:0 0 14px}
+.muted{color:#797387}
 p{line-height:1.7}
-.muted{color:#777287}
-.panel{background:white;border:1px solid #e2dfeb;border-radius:16px;padding:19px;margin:15px 0}
-.tabs{display:flex;gap:8px;margin:20px 0}
+.panel{border:1px solid #e2ddeb;background:#fff;border-radius:16px;padding:18px;margin:15px 0}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:20px 0}
 button{cursor:pointer;font:inherit}
-.tab{flex:1;border:1px solid #ddd8e8;background:white;padding:14px 5px;border-radius:11px;font-weight:bold}
-.tab.on,.chip.on,.primary{background:#7753d6;color:white}
-.chips{display:flex;flex-wrap:wrap;gap:7px}
-.chip{background:white;border:1px solid #ddd8e8;padding:9px 11px;border-radius:9px;color:#27243c}
-.chip.on{border-color:#7753d6}
-.label{font-weight:600;margin:17px 0 8px}
-.range{margin:24px 0 29px}
-.rangehead{display:flex;justify-content:space-between;gap:8px}
-.rangehead strong{color:#7753d6}
-.track{position:relative;height:30px;margin-top:15px;touch-action:none}
-.rail{position:absolute;top:12px;left:12px;right:12px;height:6px;background:#aaa6b4;border-radius:9px}
-.fill{position:absolute;top:12px;height:6px;background:#7753d6;border-radius:9px}
-.thumb{position:absolute;top:3px;width:24px;height:24px;background:white;border:3px solid #7753d6;border-radius:50%;transform:translateX(-50%);touch-action:none}
-.ends{display:flex;justify-content:space-between;font-size:11px;color:#777287}
-.primary{width:100%;border:0;padding:16px;border-radius:12px;font-size:16px;font-weight:bold}
-.hero{background:#f2edfc;text-align:center;border-radius:15px;padding:27px 12px}
-.big{font-weight:800;font-size:clamp(28px,8vw,48px);margin:12px 0}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}
-.stat{border:1px solid #ddd8e8;border-radius:12px;padding:14px 8px;text-align:center}
-.stat strong{display:block;margin:8px 0;font-size:18px}
-.line{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #eee;padding:12px 0}
-details{border:1px solid #ddd8e8;border-radius:10px;margin-top:10px}
-summary{padding:12px;font-weight:bold;cursor:pointer}
-details p{padding:0 12px;font-size:12px}
+.tab{padding:13px;border:1px solid #e0daeb;background:#fff;border-radius:10px;font-weight:700}
+.tab.active,.chip.on,.primary{background:#7654d6;color:#fff;border-color:#7654d6}
+.chip{padding:9px 11px;background:#fff;color:#28253b;border:1px solid #ded9e8;border-radius:9px}
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.label{font-weight:650;margin:16px 0 8px}
+.range{margin:21px 0 27px}
+.head{display:flex;justify-content:space-between;gap:8px;margin-bottom:15px}
+.head strong{color:#7654d6}
+.track{position:relative;height:28px;touch-action:none;user-select:none}
+.rail{position:absolute;top:11px;left:12px;right:12px;height:6px;background:#a1a1aa;border-radius:9px}
+.fill{position:absolute;top:11px;height:6px;background:#7654d6;pointer-events:none;border-radius:9px}
+.thumb{position:absolute;top:2px;width:24px;height:24px;border:3px solid #7654d6;background:white;border-radius:50%;transform:translateX(-50%);touch-action:none;cursor:grab}
+.ends{display:flex;justify-content:space-between;font-size:11px;color:#777;margin-top:6px}
+.primary{padding:15px;width:100%;border:0;border-radius:12px;font-weight:750;font-size:15px}
+.hero{padding:26px 13px;background:#f2edfc;border-radius:15px;text-align:center}
+.big{font-size:clamp(28px,7.5vw,46px);font-weight:850;margin:11px 0;overflow-wrap:anywhere;line-height:1.3}
+.tag{font-size:12px;background:#ede7fb;color:#6541c9;padding:5px 9px;border-radius:9px;font-weight:700}
+.note{font-size:12px;line-height:1.75}
+.resultline{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #eee;padding:12px 0}
+.resultline:last-child{border:0}
+details{border:1px solid #e2ddeb;border-radius:10px;margin:9px 0}
+summary{padding:12px;font-weight:700;cursor:pointer}
+details .detail{padding:0 12px 12px;font-size:12px;line-height:1.75;color:#746e7d}
 .hidden{display:none}
-.tag{color:#7753d6;font-size:12px;font-weight:bold}
-a{color:#7753d6}
+a{color:#7654d6}
 </style>
 </head>
 <body>
@@ -51,30 +49,30 @@ a{color:#7753d6}
 <p class="muted">その条件を満たす未婚者、日本に何人？</p>
 
 <div class="tabs">
-<button class="tab on" onclick="show('input')">01 理想の条件</button>
-<button class="tab" onclick="show('result')">02 結果発表</button>
+<button class="tab active" data-tab="input">01 理想の条件</button>
+<button class="tab" data-tab="result">02 結果発表</button>
 </div>
 
 <section id="input">
 <div class="panel">
 <h2>01 性別・国籍</h2>
-<div class="label">性別</div><div class="chips" id="sex"></div>
-<div class="label">国籍</div><div class="chips" id="nat"></div>
+<div class="label">性別</div><div id="sex" class="chips"></div>
+<div class="label">国籍</div><div id="nat" class="chips"></div>
 </div>
 
 <div class="panel">
 <h2>02 年齢・身長・年収</h2>
-<p class="muted">バーの両端は「下限なし」「上限なし」です。</p>
+<p class="note muted">バーの両端は「下限なし」「上限なし」。紫色が選択範囲です。</p>
 <div id="ranges"></div>
 </div>
 
 <div class="panel">
 <h2>03 居住都道府県</h2>
-<p class="muted">複数選択可。未選択なら全国。</p>
-<div id="prefs" class="chips"></div>
+<p class="muted note">複数選択可。未選択なら全国です。</p>
+<div class="chips" id="prefs"></div>
 <p>
-<button class="chip" onclick="allPrefs()">すべて選択</button>
-<button class="chip" onclick="clearPrefs()">選択解除</button>
+<button class="chip" id="allPrefs">すべて選択</button>
+<button class="chip" id="clearPrefs">選択解除</button>
 </p>
 </div>
 
@@ -85,11 +83,13 @@ a{color:#7753d6}
 </div>
 
 <div class="panel">
-<h2>05 学歴</h2><div class="chips" id="edu"></div>
+<h2>05 学歴</h2>
+<div class="chips" id="edu"></div>
 </div>
 
 <div class="panel">
-<h2>06 雇用形態</h2><div class="chips" id="job"></div>
+<h2>06 雇用形態</h2>
+<div class="chips" id="job"></div>
 </div>
 
 <div class="panel">
@@ -98,60 +98,91 @@ a{color:#7753d6}
 <div class="label">飲酒</div><div class="chips" id="drink"></div>
 </div>
 
-<button class="primary" onclick="show('result')">日本に何人いるか調べる →</button>
+<button id="go" class="primary">日本に何人いるか調べる →</button>
 </section>
 
 <section id="result" class="hidden">
 <div class="panel">
-<p class="tag">デモ推計・実測値ではありません</p>
-<div class="hero">
-<div id="intro">あなたの理想をすべて満たす未婚者は…</div>
-<div class="big" id="count">—</div>
-<div class="muted">日本国内の推計人数（デモ）</div>
+<span class="tag" id="status">公的統計</span>
+<div class="hero" style="margin-top:12px">
+<div id="intro">あなたの理想を満たす未婚者は…</div>
+<div id="number" class="big">—</div>
+<div class="muted" id="numberLabel">日本国内の未婚者数</div>
 </div>
-<div class="stats">
-<div class="stat"><small>未婚者のうち</small><strong id="rarity">—</strong></div>
-<div class="stat"><small>婚姻歴を問わず</small><strong id="allcount">—</strong></div>
-</div>
-<p id="note" class="muted"></p>
+<p id="explanation" class="note muted"></p>
 </div>
 
 <div class="panel">
-<h2>一番厳しい条件は？</h2>
-<p id="hardest"></p>
-<p class="muted">条件を1つ外すと何人増える？</p>
-<div id="relax"></div>
-</div>
-
-<div class="panel">
-<h2>条件別の希少性</h2>
-<div id="ranking"></div>
+<h2>条件別の算出状況</h2>
+<div id="statuses"></div>
 </div>
 
 <div class="panel">
 <h2>データ・推計方法</h2>
-<p class="muted">現在は公的統計に基づかないデモ計算です。</p>
-<details>
-<summary>統計の出典</summary>
-<p>現時点で実測データは使用していません。今後は国勢調査、労働力調査、民間給与実態統計調査、国民健康・栄養調査を利用する予定です。<a href="https://www.e-stat.go.jp/">e-Stat</a></p>
+
+<details open>
+<summary>統計出典と調査年</summary>
+<div class="detail">
+総務省統計局「令和7年（2025年）国勢調査」、
+表4-3-1「男女、年齢（5歳階級）、配偶関係、国籍総数か日本人別人口」。
+2026年9月29日公開。補完結果を含む集計。
+<p>
+<a target="_blank" rel="noopener noreferrer"
+href="https://www.e-stat.go.jp/en/dbview?sid=0004066253">
+該当表（e-Stat）を確認
+</a>
+</p>
+</div>
 </details>
+
 <details>
-<summary>計算方法</summary>
-<p>20〜69歳の国内人口を仮に7,500万人とし、各属性の仮定割合を掛け合わせています。未婚者の割合は仮に36%と設定しています。属性間の相関や都道府県の人口差は反映していません。</p>
+<summary>計算方法・制約</summary>
+<div class="detail">
+20〜69歳の未婚者数は26,883,120人。
+年齢の5歳階級別の実数を合算します。
+
+境界年齢が5歳階級の途中にあるときは、
+その階級の人数を5等分した近似値を用います
+（階級内の均等分布を仮定）。
+
+性別・国籍・居住地・所得・身長などの併用条件は、
+詳細クロス集計を検証できていないため、
+条件に合う正確な人数として表示しません。
+
+代わりに年齢条件を満たす未婚者の人数を
+上限の目安として表示します。
+
+公的統計の年次と、アプリ更新日は異なります。
+</div>
 </details>
+
 <details>
-<summary>注意事項・プライバシー</summary>
-<p>入力条件はこのブラウザ内で計算し、プロフィールとして保存・送信しません。Webホスティング側のアクセスログは別です。結果は個人の価値や実際に出会える確率を示しません。</p>
+<summary>プライバシー・免責</summary>
+<div class="detail">
+入力条件はこのページ内で処理し、
+プロフィールをアプリから送信・保存しません。
+
+ただしGitHub Pagesのホスティングに伴うアクセスログ等は別です。
+
+「未婚」は結婚歴が一度もない人を指します。
+
+数値は個人の価値や実際に出会える確率を表しません。
+</div>
 </details>
 </div>
-<button class="primary" onclick="show('input')">条件を変えてもう一度</button>
+
+<button id="back" class="primary">条件を変更する</button>
 </section>
 </main>
 
 <script>
+(()=>{
+'use strict';
+
 const $=id=>document.getElementById(id);
-const POP=75000000,UNM=.36;
-const items={
+const format=n=>Math.round(n).toLocaleString('ja-JP');
+
+const schema={
 sex:['男性','女性','指定なし'],
 nat:['日本国籍','外国籍','指定なし'],
 mar:['未婚','離婚歴あり','死別歴あり','指定なし'],
@@ -161,176 +192,365 @@ job:['正社員','公務員','契約社員・派遣社員','パート・アル�
 smoke:['吸わない','吸う','指定なし'],
 drink:['飲まない','ときどき飲む','よく飲む','指定なし']
 };
-const rates={
-sex:[.49,.51],
-nat:[.97,.03],
-mar:[.36,.12,.03],
-child:[.64,.36],
-edu:[.08,.36,.18,.31,.07],
-job:[.43,.06,.13,.19,.09,.10],
-smoke:[.83,.17],
-drink:[.35,.43,.22]
-};
-const names={sex:'性別',nat:'国籍',child:'子ども',edu:'学歴',job:'雇用形態',smoke:'たばこ',drink:'飲酒'};
-const chosen={};
-Object.keys(items).forEach(k=>{
-chosen[k]=['指定なし'];
-items[k].forEach(v=>{
+
+const chosen=Object.fromEntries(
+Object.keys(schema).map(k=>[k,['指定なし']])
+);
+
+function paint(){
+Object.keys(schema).forEach(k=>
+[...$(k).children].forEach(b=>{
+const on=chosen[k].includes(b.textContent);
+b.classList.toggle('on',on);
+b.setAttribute('aria-pressed',String(on));
+}));
+}
+
+Object.keys(schema).forEach(k=>schema[k].forEach(v=>{
 const b=document.createElement('button');
-b.className='chip';b.textContent=v;
+b.className='chip';
+b.textContent=v;
+b.type='button';
+
 b.onclick=()=>{
-if(v==='指定なし')chosen[k]=[v];
-else if(['sex','nat'].includes(k))chosen[k]=[v];
-else{
+if(v==='指定なし'){
+chosen[k]=[v];
+}else if(k==='sex'||k==='nat'){
+chosen[k]=[v];
+}else{
 let a=chosen[k].filter(x=>x!=='指定なし');
 a=a.includes(v)?a.filter(x=>x!==v):[...a,v];
 chosen[k]=a.length?a:['指定なし'];
 }
 paint();
 };
+
 $(k).appendChild(b);
-});
-});
-function paint(){
-Object.keys(items).forEach(k=>{
-[...$(k).children].forEach(b=>b.classList.toggle('on',chosen[k].includes(b.textContent)));
-});
-}
+}));
+
 paint();
 
-const prefNames='北海道 青森県 岩手県 宮城県 秋田県 山形県 福島県 茨城県 栃木県 群馬県 埼玉県 千葉県 東京都 神奈川県 新潟県 富山県 石川県 福井県 山梨県 長野県 岐阜県 静岡県 愛知県 三重県 滋賀県 京都府 大阪府 兵庫県 奈良県 和歌山県 鳥取県 島根県 岡山県 広島県 山口県 徳島県 香川県 愛媛県 高知県 福岡県 佐賀県 長崎県 熊本県 大分県 宮崎県 鹿児島県 沖縄県'.split(' ');
-const pref=new Set();
-prefNames.forEach(p=>{
+const prefs=(
+'北海道 青森県 岩手県 宮城県 秋田県 山形県 福島県 '+
+'茨城県 栃木県 群馬県 埼玉県 千葉県 東京都 神奈川県 '+
+'新潟県 富山県 石川県 福井県 山梨県 長野県 岐阜県 '+
+'静岡県 愛知県 三重県 滋賀県 京都府 大阪府 兵庫県 '+
+'奈良県 和歌山県 鳥取県 島根県 岡山県 広島県 山口県 '+
+'徳島県 香川県 愛媛県 高知県 福岡県 佐賀県 長崎県 '+
+'熊本県 大分県 宮崎県 鹿児島県 沖縄県'
+).split(' ');
+
+const selected=new Set();
+
+const paintP=()=>[...$('prefs').children].forEach(
+b=>b.classList.toggle('on',selected.has(b.textContent))
+);
+
+prefs.forEach(p=>{
 const b=document.createElement('button');
-b.className='chip';b.textContent=p;
-b.onclick=()=>{pref.has(p)?pref.delete(p):pref.add(p);paintPrefs()};
+b.type='button';
+b.className='chip';
+b.textContent=p;
+
+b.onclick=()=>{
+selected.has(p)?selected.delete(p):selected.add(p);
+paintP();
+};
+
 $('prefs').appendChild(b);
 });
-function paintPrefs(){[...$('prefs').children].forEach(b=>b.classList.toggle('on',pref.has(b.textContent)))}
-function allPrefs(){prefNames.forEach(p=>pref.add(p));paintPrefs()}
-function clearPrefs(){pref.clear();paintPrefs()}
+
+$('allPrefs').onclick=()=>{
+prefs.forEach(p=>selected.add(p));
+paintP();
+};
+
+$('clearPrefs').onclick=()=>{
+selected.clear();
+paintP();
+};
 
 const ranges=[
 {name:'年齢',unit:'歳',min:20,max:69,step:1,lo:null,hi:null},
 {name:'身長',unit:'cm',min:140,max:195,step:1,lo:null,hi:null},
 {name:'年収',unit:'万円',min:0,max:2000,step:10,lo:null,hi:null}
 ];
+
 ranges.forEach(r=>{
 const box=document.createElement('div');
 box.className='range';
-box.innerHTML='<div class="rangehead"><span>'+r.name+'</span><strong></strong></div><div class="track"><div class="rail"></div><div class="fill"></div><div class="thumb" data-side="lo"></div><div class="thumb" data-side="hi"></div></div><div class="ends"><span>'+r.min+r.unit+'（下限なし）</span><span>'+r.max+r.unit+'（上限なし）</span></div>';
+
+box.innerHTML=`
+<div class="head">
+<span>${r.name}</span><strong></strong>
+</div>
+<div class="track">
+<div class="rail"></div>
+<div class="fill"></div>
+<div class="thumb" data-side="lo" role="slider" tabindex="0"></div>
+<div class="thumb" data-side="hi" role="slider" tabindex="0"></div>
+</div>
+<div class="ends">
+<span>${r.min}${r.unit}（下限なし）</span>
+<span>${r.max}${r.unit}（上限なし）</span>
+</div>`;
+
 $('ranges').appendChild(box);
+
 const track=box.querySelector('.track');
 const thumbs=[...box.querySelectorAll('.thumb')];
+
 function draw(){
 const a=((r.lo??r.min)-r.min)/(r.max-r.min);
 const b=((r.hi??r.max)-r.min)/(r.max-r.min);
-box.querySelector('strong').textContent=(r.lo===null?'下限なし':r.lo+r.unit)+' 〜 '+(r.hi===null?'上限なし':r.hi+r.unit);
+
+box.querySelector('strong').textContent=
+(r.lo===null?'下限なし':r.lo+r.unit)+
+' 〜 '+
+(r.hi===null?'上限なし':r.hi+r.unit);
+
 thumbs[0].style.left=`calc(12px + (100% - 24px) * ${a})`;
 thumbs[1].style.left=`calc(12px + (100% - 24px) * ${b})`;
-const fill=box.querySelector('.fill');
-fill.style.left=`calc(12px + (100% - 24px) * ${a})`;
-fill.style.width=`calc((100% - 24px) * ${b-a})`;
+
+const f=box.querySelector('.fill');
+f.style.left=`calc(12px + (100% - 24px) * ${a})`;
+f.style.width=`calc((100% - 24px) * ${b-a})`;
+
+thumbs.forEach((h,i)=>{
+h.setAttribute('aria-label',r.name+(i?'上限':'下限'));
+h.setAttribute('aria-valuemin',r.min);
+h.setAttribute('aria-valuemax',r.max);
+h.setAttribute('aria-valuenow',i?(r.hi??r.max):(r.lo??r.min));
+});
 }
-function set(side,value){
-const n=r.min+Math.round((value-r.min)/r.step)*r.step;
+
+function set(side,val){
+const n=r.min+Math.round((val-r.min)/r.step)*r.step;
 const v=Math.max(r.min,Math.min(r.max,n));
-if(side==='lo')r.lo=v<=r.min?null:Math.min(v,r.hi??r.max);
-else r.hi=v>=r.max?null:Math.max(v,r.lo??r.min);
+
+if(side==='lo'){
+r.lo=v<=r.min?null:Math.min(v,r.hi??r.max);
+}else{
+r.hi=v>=r.max?null:Math.max(v,r.lo??r.min);
+}
+
 draw();
 }
-function fromX(x){
-const b=track.getBoundingClientRect();
-const t=Math.max(0,Math.min(1,(x-b.left-12)/(b.width-24)));
-return r.min+t*(r.max-r.min);
+
+function val(x){
+const rect=track.getBoundingClientRect();
+return r.min+
+Math.max(0,Math.min(1,
+(x-rect.left-12)/Math.max(1,rect.width-24)
+))*(r.max-r.min);
 }
+
 thumbs.forEach(h=>{
 h.addEventListener('pointerdown',e=>{
-e.preventDefault();e.stopPropagation();
+e.preventDefault();
+e.stopPropagation();
 h.setPointerCapture(e.pointerId);
-const move=ev=>set(h.dataset.side,fromX(ev.clientX));
-const stop=()=>{h.removeEventListener('pointermove',move);h.removeEventListener('pointerup',stop);h.removeEventListener('pointercancel',stop)};
+
+const move=ev=>set(h.dataset.side,val(ev.clientX));
+
+const stop=()=>{
+h.removeEventListener('pointermove',move);
+h.removeEventListener('pointerup',stop);
+h.removeEventListener('pointercancel',stop);
+};
+
 h.addEventListener('pointermove',move);
 h.addEventListener('pointerup',stop);
 h.addEventListener('pointercancel',stop);
 });
+
+h.addEventListener('keydown',e=>{
+if(e.key==='ArrowLeft'||e.key==='ArrowRight'){
+e.preventDefault();
+set(
+h.dataset.side,
+(r[h.dataset.side]??(h.dataset.side==='lo'?r.min:r.max))+
+(e.key==='ArrowRight'?r.step:-r.step)
+);
+}
 });
+});
+
 track.addEventListener('pointerdown',e=>{
 if(e.target.classList.contains('thumb'))return;
-const v=fromX(e.clientX);
-const lo=r.lo??r.min,hi=r.hi??r.max;
-set(Math.abs(v-lo)<=Math.abs(v-hi)?'lo':'hi',v);
+
+const x=val(e.clientX);
+set(
+Math.abs(x-(r.lo??r.min))<=Math.abs(x-(r.hi??r.max))?'lo':'hi',
+x
+);
 });
+
 draw();
 });
 
-function clamp(x,a,b){return Math.max(a,Math.min(b,x))}
-function cdf(r,x){
-if(r.name==='年齢')return clamp((x-19.5)/50,0,1);
-if(r.name==='身長')return 1/(1+Math.exp(-(x-165)/8));
-return 1-Math.exp(-Math.max(0,x)/420);
+// 2025年国勢調査の未婚者数。
+// 5歳階級：20～24歳、25～29歳、…、65～69歳。
+// 公開前に原表との最終照合が必要。
+const ageCounts=[
+5972615,
+4753807,
+3065057,
+2406612,
+2155242,
+2158459,
+2345676,
+1833451,
+1296507,
+895694
+];
+
+const total=26883120;
+
+function ageCount(){
+const r=ranges[0];
+const a=r.lo??20;
+const b=r.hi??69;
+let sum=0;
+
+ageCounts.forEach((n,i)=>{
+const start=20+5*i;
+const end=start+4;
+
+const overlap=Math.max(
+0,
+Math.min(b,end)-Math.max(a,start)+1
+);
+
+sum+=n*overlap/5;
+});
+
+return Math.round(sum);
 }
-function interval(r){
-const upper=r.hi===null?1:cdf(r,r.hi+r.step/2);
-const lower=r.lo===null?0:cdf(r,r.lo-r.step/2);
-return clamp(upper-lower,0,1);
-}
-function fmt(n){return Math.round(n).toLocaleString('ja-JP')}
-function people(p){
-const n=POP*p;
-if(n<100)return '推計困難';
-return n<10000?'約'+fmt(n)+'人':'約'+(n/10000).toLocaleString('ja-JP',{maximumFractionDigits:1})+'万人';
-}
-function rarity(p,den=1){
-return p*POP<100?'推計困難':'約'+fmt(den/p)+'人に1人';
-}
+
 function calculate(){
-const factors=[];
-Object.keys(items).forEach(k=>{
-if(k==='mar'||chosen[k].includes('指定なし'))return;
-const p=chosen[k].reduce((a,v)=>a+rates[k][items[k].indexOf(v)],0);
-factors.push({name:names[k],p});
-});
-ranges.forEach(r=>{
-if(r.lo!==null||r.hi!==null)factors.push({name:r.name,p:interval(r)});
-});
-if(pref.size>0&&pref.size<47)factors.push({name:'居住地',p:pref.size/47});
-const base=factors.reduce((a,f)=>a*f.p,1);
-const include=chosen.mar.includes('指定なし')||chosen.mar.includes('未婚');
-const p=include?base*UNM:0;
-$('intro').textContent=include?'あなたの理想をすべて満たす未婚者は…':'設定条件に未婚者が含まれません';
-$('count').textContent=include?people(p):'0人';
-$('rarity').textContent=include?rarity(p,UNM):'該当なし';
-$('allcount').textContent=people(base);
-$('note').textContent='未婚とは一度も結婚したことがない人です。結果はデモ用の試算です。';
-factors.sort((a,b)=>a.p-b.p);
-$('hardest').textContent=factors.length?'最も絞り込む条件は「'+factors[0].name+'」です。':'まだ絞り込み条件がありません。';
-$('ranking').replaceChildren();
-$('relax').replaceChildren();
-factors.forEach((f,i)=>{
+const age=ageCount();
+const mar=chosen.mar;
+
+const include=
+mar.includes('指定なし')||
+mar.includes('未婚');
+
+const unsupported=[];
+
+for(const k of [
+'sex','nat','child','edu','job','smoke','drink'
+]){
+if(!chosen[k].includes('指定なし')){
+unsupported.push({
+sex:'性別',
+nat:'国籍',
+child:'子ども',
+edu:'学歴',
+job:'雇用形態',
+smoke:'たばこ',
+drink:'飲酒'
+}[k]);
+}
+}
+
+if(selected.size>0&&selected.size<47){
+unsupported.push('居住都道府県');
+}
+
+for(const r of ranges.slice(1)){
+if(r.lo!==null||r.hi!==null){
+unsupported.push(r.name);
+}
+}
+
+const estimate=age!==total;
+const hasLimit=unsupported.length>0;
+
+$('statuses').replaceChildren();
+
+const add=(name,msg)=>{
 const row=document.createElement('div');
-row.className='line';
-row.textContent=(i+1)+'. '+f.name;
-const value=document.createElement('strong');
-value.textContent=rarity(f.p);
-row.appendChild(value);
-$('ranking').appendChild(row);
-if(i<3){
-const r=document.createElement('div');r.className='line';
-r.textContent='「'+f.name+'」を外す';
-const n=document.createElement('strong');
-n.textContent=include?people(p/Math.max(f.p,1e-12)):'—';
-r.appendChild(n);$('relax').appendChild(r);
+row.className='resultline';
+
+const l=document.createElement('span');
+l.textContent=name;
+
+const v=document.createElement('strong');
+v.textContent=msg;
+
+row.append(l,v);
+$('statuses').append(row);
+};
+
+add('婚姻歴','未婚者を対象');
+add('年齢',estimate?'5歳階級による概算':'2025年国勢調査の実数');
+
+unsupported.forEach(k=>
+add(k,'複合条件の推計未整備')
+);
+
+if(!unsupported.length){
+add('その他の条件','指定なし');
 }
-});
+
+if(!include){
+$('status').textContent='条件の確認';
+$('intro').textContent='婚姻歴の設定に「未婚」が含まれません';
+$('number').textContent='0人';
+$('numberLabel').textContent='設定条件と未婚者の共通部分';
+$('explanation').textContent=
+'「未婚」を含めて選択すると、未婚者を対象にした集計ができます。';
+return;
 }
+
+$('intro').textContent=hasLimit
+?'あなたの条件の候補となる未婚者は…'
+:'あなたの理想を満たす未婚者は…';
+
+$('number').textContent=
+(hasLimit?'最大 約':estimate?'約':'')+
+format(age)+'人';
+
+$('numberLabel').textContent=hasLimit
+?'年齢条件から求めた上限の目安'
+:estimate
+?'公的統計の5歳階級からの概算'
+:'2025年国勢調査の実数';
+
+$('status').textContent=hasLimit
+?'未算出の条件あり'
+:estimate
+?'公的統計に基づく概算'
+:'公的統計の実数';
+
+$('explanation').textContent=hasLimit
+?'性別・身長・年収等の指定も反映するためには、条件同士の関連を扱う追加データが必要です。現在の数字はその条件の人数ではなく、年齢条件だけから算出できる上限の目安です。'
+:estimate
+?'年齢5歳階級の公的実数を使用し、境界の年齢のみ均等配分で近似しています。'
+:'2025年国勢調査の20〜69歳未婚者の集計値です。';
+}
+
 function show(page){
 $('input').classList.toggle('hidden',page!=='input');
 $('result').classList.toggle('hidden',page!=='result');
-document.querySelectorAll('.tab').forEach((b,i)=>b.classList.toggle('on',i===(page==='input'?0:1)));
+
+document.querySelectorAll('[data-tab]').forEach(
+b=>b.classList.toggle('active',b.dataset.tab===page)
+);
+
 if(page==='result')calculate();
 window.scrollTo(0,0);
 }
+
+document.querySelectorAll('[data-tab]').forEach(
+b=>b.onclick=()=>show(b.dataset.tab)
+);
+
+$('go').onclick=()=>show('result');
+$('back').onclick=()=>show('input');
+
+})();
 </script>
 </body>
 </html>
