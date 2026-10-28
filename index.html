@@ -621,6 +621,100 @@ footer {
   .pie-hole { width:108px;height:108px; }
   .clean-score { font-size:45px; }
 }
+
+/* ===================================
+   結婚願望：逆ピラミッド型ファネル
+=================================== */
+
+.marriage-funnel {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  padding:10px 0 16px;
+}
+
+.funnel-stage {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+
+  min-height:104px;
+  padding:17px 12px;
+
+  text-align:center;
+  box-sizing:border-box;
+
+  /* JSで人数に応じて横幅を変更 */
+  width:100%;
+
+  transition:width .4s ease;
+}
+
+.funnel-stage-1 {
+  background:#dcd0f6;
+  color:#362854;
+  clip-path:polygon(
+    0 0,100% 0,
+    94% 100%,6% 100%
+  );
+}
+
+.funnel-stage-2 {
+  width:78%;
+  background:#ae96eb;
+  color:#30204f;
+  clip-path:polygon(
+    0 0,100% 0,
+    92% 100%,8% 100%
+  );
+}
+
+.funnel-stage-3 {
+  width:57%;
+  background:#7654d6;
+  color:#ffffff;
+  clip-path:polygon(
+    0 0,100% 0,
+    88% 100%,12% 100%
+  );
+}
+
+.funnel-label {
+  font-size:12px;
+  font-weight:700;
+  line-height:1.5;
+}
+
+.funnel-number {
+  font-size:clamp(20px,5.5vw,29px);
+  font-weight:850;
+  line-height:1.25;
+  overflow-wrap:anywhere;
+}
+
+.funnel-percent {
+  font-size:11px;
+  opacity:.85;
+}
+
+@media(max-width:530px) {
+  .funnel-stage {
+    min-height:96px;
+    padding:14px 9px;
+  }
+
+  .funnel-label {
+    font-size:11px;
+  }
+
+  .funnel-number {
+    font-size:clamp(17px,5vw,24px);
+  }
+}
+
 </style>
 </head>
 
@@ -770,26 +864,53 @@ footer {
     </p>
   </div>
 
-  <div class="panel">
-    <h2>その中で、結婚を望んでいる人は？</h2>
-    <div class="step-row">
-      <span>理想条件を満たす人</span>
-      <strong id="stepAll">—</strong>
+
+<div class="panel">
+  <h2>理想の人、結婚願望があるのは何人？</h2>
+
+  <p class="section-subtitle">
+    条件を満たす人のうち、
+    交際相手がいない人、さらに結婚を望む人へと
+    絞り込んだ推定人数です。
+  </p>
+
+  <div class="marriage-funnel">
+
+    <div class="funnel-stage funnel-stage-1"
+         id="funnelStage1">
+      <span class="funnel-label">
+        理想条件を満たす人
+      </span>
+      <strong class="funnel-number" id="stepAll">—</strong>
+      <span class="funnel-percent">100%</span>
     </div>
-    <div class="step-arrow">↓</div>
-    <div class="step-row">
-      <span>交際相手がいない人</span>
-      <strong id="stepSingle">—</strong>
+
+    <div class="funnel-stage funnel-stage-2"
+         id="funnelStage2">
+      <span class="funnel-label">
+        交際相手がいない人
+      </span>
+      <strong class="funnel-number" id="stepSingle">—</strong>
+      <span class="funnel-percent" id="singlePercent">—</span>
     </div>
-    <div class="step-arrow">↓</div>
-    <div class="step-row final">
-      <span>さらに結婚願望がある人</span>
-      <strong id="stepMarriage">—</strong>
+
+    <div class="funnel-stage funnel-stage-3"
+         id="funnelStage3">
+      <span class="funnel-label">
+        さらに結婚願望がある人
+      </span>
+      <strong class="funnel-number" id="stepMarriage">—</strong>
+      <span class="funnel-percent" id="marriagePercent">—</span>
     </div>
-    <p class="note muted">
-      ※ 交際状況と結婚意思を独立近似した推計です。
-    </p>
+
   </div>
+
+  <p class="note muted">
+    ※ 各割合は「理想条件を満たす人」を100%とした値です。
+    交際状況と結婚意思を独立近似した推計です。
+  </p>
+</div>
+
 
   <div class="panel">
     <h2>その人たちは、どうやって婚活している？</h2>
@@ -2327,6 +2448,45 @@ function renderResults(){
   $("stepAll").textContent=formatEstimate(data.current);
   $("stepSingle").textContent=formatEstimate(data.noPartner);
   $("stepMarriage").textContent=formatEstimate(data.wantsMarriage);
+  
+// ===================================
+// 逆ピラミッドの割合と横幅
+// ===================================
+
+const funnelAll = data.current;
+const funnelSingle = data.noPartner;
+const funnelMarriage = data.wantsMarriage;
+
+// 最上段の人数を100%とする
+const singleRatio = funnelAll > 0
+  ? clamp(funnelSingle / funnelAll, 0, 1)
+  : 0;
+
+const marriageRatio = funnelAll > 0
+  ? clamp(funnelMarriage / funnelAll, 0, 1)
+  : 0;
+
+// 割合を表示
+$("singlePercent").textContent =
+  funnelAll > 0
+    ? (singleRatio * 100).toFixed(1) + "%"
+    : "—";
+
+$("marriagePercent").textContent =
+  funnelAll > 0
+    ? (marriageRatio * 100).toFixed(1) + "%"
+    : "—";
+
+// 人数に応じた横幅
+// 文字が読めるよう最小幅を確保
+$("funnelStage1").style.width = "100%";
+
+$("funnelStage2").style.width =
+  Math.max(65, singleRatio * 100) + "%";
+
+$("funnelStage3").style.width =
+  Math.max(55, marriageRatio * 100) + "%";
+
 
   renderActivities(data);
   renderChildPie(data);
