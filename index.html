@@ -965,25 +965,6 @@ footer{
     </p>
   </div>
 
-  <!-- 従来の大きな人数表示 -->
-
-  <div class="panel">
-    <div class="hero">
-      <div id="resultHeading">
-        あなたの条件に当てはまる人は…
-      </div>
-      <div id="resultNumber" class="big">—</div>
-      <div class="muted">
-        日本国内の推定人数
-      </div>
-    </div>
-
-    <p class="note muted">
-      ※ 公的統計の参考値と未検証の推計係数を
-      組み合わせています。正確な実人数ではありません。
-    </p>
-  </div>
-
   <!-- 16タイプ診断 -->
 
   <div class="panel">
@@ -3426,21 +3407,6 @@ function renderResults(){
 
   latestResult=data;
   latestDiagnosis=diagnosis;
-
-  if(
-    chosen.mar.length===1 &&
-    chosen.mar[0]==="未婚"
-  ){
-    $("resultHeading").textContent=
-      "あなたの条件に当てはまる未婚の人は…";
-  }else{
-    $("resultHeading").textContent=
-      "あなたの条件に当てはまる"+
-      "現在配偶者がいない人は…";
-  }
-
-  $("resultNumber").textContent=
-    formatEstimate(data.current);
 
   renderFunnel(data);
   renderDiagnosis(diagnosis);
