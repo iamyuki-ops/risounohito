@@ -6,48 +6,108 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#7654d6">
 <meta name="robots" content="index,follow">
-<title>理想の人、何人いる？｜理想の相手の人数を試算</title>
-<meta name="description" content="理想の条件に当てはまる人は日本に何人？交際相手の有無、結婚願望、婚活方法、子どもの希望、1年後の変化まで無料で試算。">
-<link rel="canonical" href="https://iamyuki-ops.github.io/risounohito/">
+
+<title>理想の人、何人いる？｜理想の相手を人数で診断</title>
+
+<meta name="description"
+content="理想の条件に当てはまる人は日本に何人？16タイプの理想診断、条件を緩めた人数比較、婚活状況、子ども希望、1年後の予測まで無料で試算。">
+
+<link rel="canonical"
+href="https://iamyuki-ops.github.io/risounohito/">
+
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="理想の人、何人いる？">
 <meta property="og:title" content="理想の人、何人いる？">
-<meta property="og:description" content="その理想、日本に何人？恋愛・結婚の条件から人数を試算。">
-<meta property="og:url" content="https://iamyuki-ops.github.io/risounohito/">
-<meta property="og:image" content="https://iamyuki-ops.github.io/risounohito/ogp.png">
+<meta property="og:description"
+content="その理想、日本に何人？あなたの理想は16タイプのどれ？">
+<meta property="og:url"
+content="https://iamyuki-ops.github.io/risounohito/">
+<meta property="og:image"
+content="https://iamyuki-ops.github.io/risounohito/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://iamyuki-ops.github.io/risounohito/ogp.png">
 
 <style>
 :root {
   --purple:#7654d6;
+  --purple-dark:#6240bd;
   --light:#f2edfc;
   --bg:#f8f7fb;
   --border:#e2ddeb;
   --text:#28253b;
   --muted:#797387;
+  --green:#287c66;
+  --red:#c04463;
 }
-* { box-sizing:border-box; }
+
+* {
+  box-sizing:border-box;
+}
+
 body {
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font:14px system-ui,-apple-system,sans-serif;
+  font:14px system-ui,-apple-system,
+       "Hiragino Kaku Gothic ProN",
+       "Yu Gothic",sans-serif;
 }
+
 main {
   max-width:740px;
   margin:auto;
   padding:24px 15px 70px;
 }
-h1 { margin:0;font-size:28px; }
-h2 { margin:0 0 14px;font-size:17px; }
-p { line-height:1.75; }
-a { color:var(--purple); }
-button { font:inherit;cursor:pointer; }
-.hidden { display:none!important; }
-.muted { color:var(--muted); }
-.note { font-size:12px;line-height:1.8; }
+
+h1 {
+  margin:0;
+  font-size:28px;
+  letter-spacing:-.03em;
+}
+
+h2 {
+  margin:0 0 14px;
+  font-size:17px;
+}
+
+h3 {
+  margin:0;
+  font-size:15px;
+}
+
+p {
+  line-height:1.75;
+}
+
+a {
+  color:var(--purple);
+}
+
+button {
+  font:inherit;
+  cursor:pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+.thumb:focus-visible {
+  outline:3px solid #c2aaff;
+  outline-offset:3px;
+}
+
+.hidden {
+  display:none!important;
+}
+
+.muted {
+  color:var(--muted);
+}
+
+.note {
+  font-size:12px;
+  line-height:1.8;
+}
+
 .panel {
   background:#fff;
   border:1px solid var(--border);
@@ -55,24 +115,51 @@ button { font:inherit;cursor:pointer; }
   padding:19px;
   margin:15px 0;
 }
+
+.header-subtitle {
+  margin:8px 0 0;
+}
+
+/* ===================================
+   3タブ
+=================================== */
+
 .tabs {
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
   margin:20px 0;
 }
+
 .tab {
-  padding:13px;
+  min-width:0;
+  padding:13px 5px;
   background:#fff;
   border:1px solid var(--border);
   border-radius:10px;
   font-weight:700;
+  font-size:12px;
+  line-height:1.5;
 }
-.tab.active,.chip.on,.primary {
-  color:#fff;
+
+.tab.active,
+.chip.on,
+.primary {
   background:var(--purple);
+  color:#fff;
   border-color:var(--purple);
 }
+
+/* ===================================
+   入力フォーム
+=================================== */
+
+.chips {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
 .chip {
   padding:9px 11px;
   background:#fff;
@@ -80,71 +167,82 @@ button { font:inherit;cursor:pointer; }
   border:1px solid var(--border);
   border-radius:9px;
 }
-.chips { display:flex;flex-wrap:wrap;gap:7px; }
-.label { font-weight:700;margin:16px 0 8px; }
+
+.label {
+  margin:16px 0 8px;
+  font-weight:700;
+}
+
 .primary {
   width:100%;
   padding:15px;
   border:0;
   border-radius:12px;
-  font-size:15px;
   font-weight:750;
-}
-.tag {
-  display:inline-block;
-  padding:6px 10px;
-  background:var(--light);
-  color:var(--purple);
-  border-radius:8px;
-  font-size:12px;
-  font-weight:700;
-}
-.hero {
-  padding:29px 14px;
-  background:var(--light);
-  border-radius:15px;
-  text-align:center;
-}
-.big {
-  margin:12px 0;
-  font-size:clamp(29px,8vw,48px);
-  font-weight:850;
-  line-height:1.3;
-  overflow-wrap:anywhere;
+  font-size:15px;
 }
 
-/* 範囲スライダー */
-.range { margin:23px 0 29px; }
+.primary:hover {
+  background:var(--purple-dark);
+}
+
+.secondary-button {
+  display:block;
+  width:100%;
+  padding:12px;
+  background:#fff;
+  color:var(--purple);
+  border:1px solid var(--purple);
+  border-radius:10px;
+  font-weight:700;
+}
+
+/* ===================================
+   範囲スライダー
+=================================== */
+
+.range {
+  margin:23px 0 29px;
+}
+
 .range-head {
   display:flex;
   justify-content:space-between;
   gap:10px;
   margin-bottom:14px;
 }
-.range-head strong { color:var(--purple); }
+
+.range-head strong {
+  color:var(--purple);
+  text-align:right;
+}
+
 .track {
   position:relative;
   height:30px;
   touch-action:none;
   user-select:none;
 }
+
 .rail {
   position:absolute;
   top:12px;
   left:12px;
   right:12px;
   height:6px;
-  border-radius:9px;
   background:#a1a1aa;
+  border-radius:9px;
 }
+
 .fill {
   position:absolute;
   top:12px;
   height:6px;
-  border-radius:9px;
   background:var(--purple);
+  border-radius:9px;
   pointer-events:none;
 }
+
 .thumb {
   position:absolute;
   top:3px;
@@ -157,6 +255,7 @@ button { font:inherit;cursor:pointer; }
   touch-action:none;
   cursor:grab;
 }
+
 .ends {
   display:flex;
   justify-content:space-between;
@@ -166,7 +265,179 @@ button { font:inherit;cursor:pointer; }
   color:var(--muted);
 }
 
-/* 結婚願望までの絞り込み */
+/* ===================================
+   メイン結果
+=================================== */
+
+.tag {
+  display:inline-block;
+  padding:6px 10px;
+  background:var(--light);
+  color:var(--purple);
+  border-radius:8px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.hero {
+  margin-top:12px;
+  padding:29px 14px;
+  background:var(--light);
+  border-radius:15px;
+  text-align:center;
+}
+
+.big {
+  margin:12px 0;
+  font-size:clamp(29px,8vw,48px);
+  font-weight:850;
+  line-height:1.35;
+  overflow-wrap:anywhere;
+}
+
+/* ===================================
+   NEW：16タイプ診断
+=================================== */
+
+.diagnosis-card {
+  padding:25px 18px;
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      #e9dcff,
+      transparent 36%
+    ),
+    linear-gradient(145deg,#f6f1ff,#fdfbff);
+  border:1px solid #e6dcf6;
+  border-radius:15px;
+  text-align:center;
+}
+
+.diagnosis-symbol {
+  font-size:29px;
+  margin-bottom:7px;
+}
+
+.diagnosis-id {
+  color:var(--purple);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.12em;
+}
+
+.diagnosis-name {
+  margin:13px 0;
+  color:var(--purple-dark);
+  font-size:clamp(20px,5vw,26px);
+  font-weight:850;
+  line-height:1.45;
+}
+
+.diagnosis-catch {
+  margin:14px 0;
+  font-size:17px;
+  font-weight:800;
+  line-height:1.65;
+}
+
+.diagnosis-kind {
+  margin:10px auto 0;
+  max-width:450px;
+  color:#655e77;
+  line-height:1.9;
+}
+
+.diagnosis-reason {
+  padding:12px;
+  margin-top:14px;
+  border-radius:10px;
+  background:#fff;
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* ===================================
+   NEW：条件緩和比較
+=================================== */
+
+.relax-base {
+  padding:15px;
+  border-radius:11px;
+  background:var(--light);
+  margin-bottom:15px;
+}
+
+.relax-base-label {
+  color:var(--muted);
+  font-size:12px;
+}
+
+.relax-base-number {
+  color:var(--purple);
+  font-size:25px;
+  font-weight:850;
+  margin-top:4px;
+}
+
+.relax-item {
+  padding:16px 0;
+  border-bottom:1px solid #ece8f0;
+}
+
+.relax-item:last-child {
+  border-bottom:0;
+}
+
+.relax-head {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+}
+
+.relax-label {
+  font-size:13px;
+  font-weight:700;
+  line-height:1.7;
+}
+
+.relax-number {
+  text-align:right;
+  white-space:nowrap;
+}
+
+.relax-number strong {
+  display:block;
+  color:var(--purple);
+  font-size:18px;
+}
+
+.relax-plus {
+  color:var(--green);
+  font-size:13px;
+  font-weight:750;
+  margin-top:4px;
+}
+
+.relax-description {
+  color:var(--muted);
+  font-size:11px;
+  margin-top:8px;
+}
+
+.empty-info {
+  padding:15px;
+  background:var(--bg);
+  border-radius:10px;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* ===================================
+   交際・結婚願望
+=================================== */
+
 .step-row {
   display:flex;
   justify-content:space-between;
@@ -177,61 +448,84 @@ button { font:inherit;cursor:pointer; }
   border-radius:10px;
   margin:9px 0;
 }
-.step-row span { color:#514e60;line-height:1.5; }
+
+.step-row span {
+  color:#514e60;
+  line-height:1.6;
+}
+
 .step-row strong {
   color:var(--purple);
   font-size:19px;
   text-align:right;
 }
-.step-row.final { background:var(--light); }
-.step-row.final strong { font-size:22px; }
+
+.step-row.final {
+  background:var(--light);
+}
+
+.step-row.final strong {
+  font-size:22px;
+}
+
 .step-arrow {
   text-align:center;
   color:#9b8cba;
-  line-height:1;
 }
+
 .section-subtitle {
   color:var(--muted);
   font-size:12px;
-  line-height:1.75;
+  line-height:1.8;
   margin:0 0 15px;
 }
 
-/* 婚活方法 */
+/* ===================================
+   婚活手段
+=================================== */
+
 .activity-item {
   padding:14px 0;
   border-bottom:1px solid #eee;
 }
-.activity-item:last-child { border-bottom:0; }
+
+.activity-item:last-child {
+  border-bottom:0;
+}
+
 .activity-item.none {
-  background:var(--light);
-  border-radius:10px;
-  border:0;
   padding:13px;
   margin-top:12px;
+  border:0;
+  border-radius:10px;
+  background:var(--light);
 }
+
 .activity-head {
   display:flex;
   justify-content:space-between;
-  align-items:center;
   gap:10px;
+  align-items:center;
 }
+
 .activity-name {
   font-size:13px;
   font-weight:700;
   line-height:1.6;
 }
+
 .activity-count {
   color:var(--purple);
   font-size:17px;
-  font-weight:800;
   white-space:nowrap;
 }
+
 .activity-percent {
   color:var(--muted);
   font-size:12px;
   margin-top:5px;
 }
+
 .activity-track {
   height:5px;
   background:#e8e5ed;
@@ -239,16 +533,21 @@ button { font:inherit;cursor:pointer; }
   overflow:hidden;
   margin-top:9px;
 }
+
 .activity-fill {
   height:100%;
   background:var(--purple);
   border-radius:6px;
 }
+
 .activity-item.none .activity-fill {
   background:#9f89ce;
 }
 
-/* 子ども希望の円グラフ */
+/* ===================================
+   子ども希望円グラフ
+=================================== */
+
 .child-layout {
   display:flex;
   align-items:center;
@@ -257,6 +556,7 @@ button { font:inherit;cursor:pointer; }
   gap:25px;
   margin:20px 0;
 }
+
 .pie-chart {
   width:190px;
   height:190px;
@@ -266,6 +566,7 @@ button { font:inherit;cursor:pointer; }
   place-items:center;
   flex-shrink:0;
 }
+
 .pie-hole {
   width:118px;
   height:118px;
@@ -276,18 +577,25 @@ button { font:inherit;cursor:pointer; }
   justify-content:center;
   flex-direction:column;
 }
-.pie-hole small { color:var(--muted);font-size:11px; }
+
+.pie-hole small {
+  color:var(--muted);
+  font-size:11px;
+}
+
 .pie-hole strong {
+  margin-top:4px;
   color:var(--purple);
   font-size:25px;
-  margin-top:4px;
 }
+
 .pie-legend {
   display:flex;
   flex-direction:column;
   gap:15px;
   min-width:170px;
 }
+
 .legend-item {
   display:grid;
   grid-template-columns:12px 1fr auto;
@@ -295,23 +603,42 @@ button { font:inherit;cursor:pointer; }
   gap:8px;
   font-size:12px;
 }
-.legend-item strong { font-size:14px; }
+
+.legend-item strong {
+  font-size:14px;
+}
+
 .legend-dot {
   width:12px;
   height:12px;
   border-radius:50%;
 }
-.legend-dot.yes { background:#7654d6; }
-.legend-dot.no { background:#d7c8f4; }
-.legend-dot.unknown { background:#e6e6eb; }
+
+.legend-dot.yes {
+  background:#7654d6;
+}
+
+.legend-dot.no {
+  background:#d7c8f4;
+}
+
+.legend-dot.unknown {
+  background:#e6e6eb;
+}
+
 .child-total {
   text-align:center;
-  font-size:13px;
   color:var(--muted);
 }
-.child-total strong { color:var(--text); }
 
-/* 1年後 */
+.child-total strong {
+  color:var(--text);
+}
+
+/* ===================================
+   1年後
+=================================== */
+
 .forecast-row {
   display:flex;
   justify-content:space-between;
@@ -322,48 +649,68 @@ button { font:inherit;cursor:pointer; }
   background:var(--bg);
   border-radius:10px;
 }
+
 .forecast-row strong {
   color:var(--purple);
   font-size:19px;
   text-align:right;
 }
-.forecast-row strong.decrease { color:#c04463; }
-.forecast-row strong.increase { color:#287c66; }
 
-/* X共有 */
-.share-title {
-  text-align:center;
-  font-weight:750;
-  font-size:15px;
-  margin-bottom:8px;
+.forecast-row strong.decrease {
+  color:var(--red);
 }
+
+.forecast-row strong.increase {
+  color:var(--green);
+}
+
+/* ===================================
+   共有
+=================================== */
+
 .share-actions {
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
 }
+
 .share-btn {
   padding:14px 10px;
   border-radius:11px;
   font-size:14px;
   font-weight:750;
 }
-.share-x { background:#202024;color:#fff;border:1px solid #202024; }
-.share-copy { background:#fff;color:var(--purple);border:1px solid var(--purple); }
-.share-feedback {
-  font-size:12px;
-  color:var(--purple);
-  text-align:center;
-  min-height:18px;
+
+.share-x {
+  background:#202024;
+  color:#fff;
+  border:1px solid #202024;
 }
 
-/* 楽天PR */
+.share-copy {
+  background:#fff;
+  color:var(--purple);
+  border:1px solid var(--purple);
+}
+
+.share-feedback {
+  min-height:18px;
+  text-align:center;
+  color:var(--purple);
+  font-size:12px;
+}
+
+/* ===================================
+   楽天広告
+=================================== */
+
 .pr-heading {
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:10px;
 }
+
 .pr-badge {
   padding:5px 10px;
   background:#e9e9ef;
@@ -373,14 +720,28 @@ button { font:inherit;cursor:pointer; }
   font-weight:750;
   white-space:nowrap;
 }
-.pr-book { border-bottom:1px solid #eee;padding:18px 0; }
-.pr-book:last-child { border-bottom:0; }
+
+.pr-book {
+  padding:18px 0;
+  border-bottom:1px solid #eee;
+}
+
+.pr-book:last-child {
+  border-bottom:0;
+}
+
 .pr-book-main {
   display:flex;
   gap:13px;
   align-items:flex-start;
 }
-.pr-cover { display:block;width:96px;flex-shrink:0; }
+
+.pr-cover {
+  display:block;
+  width:96px;
+  flex-shrink:0;
+}
+
 .pr-cover img {
   display:block;
   width:100%;
@@ -388,7 +749,12 @@ button { font:inherit;cursor:pointer; }
   max-height:145px;
   object-fit:contain;
 }
-.pr-info { flex:1;min-width:0; }
+
+.pr-info {
+  flex:1;
+  min-width:0;
+}
+
 .pr-title {
   display:block;
   color:var(--text);
@@ -397,15 +763,16 @@ button { font:inherit;cursor:pointer; }
   font-weight:750;
   line-height:1.6;
 }
+
 .pr-comment {
-  background:var(--light);
   padding:12px;
-  border-radius:10px;
   margin:12px 0;
+  background:var(--light);
+  border-radius:10px;
   font-weight:600;
   line-height:1.75;
-  white-space:pre-wrap;
 }
+
 .pr-button {
   display:inline-block;
   padding:10px 12px;
@@ -416,35 +783,99 @@ button { font:inherit;cursor:pointer; }
   font-size:12px;
   font-weight:750;
 }
-.pr-note { color:var(--muted);font-size:11px;line-height:1.8; }
+
+.pr-note {
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.8;
+}
+
+/* ===================================
+   算出方法タブ
+=================================== */
 
 details {
   border:1px solid var(--border);
   border-radius:10px;
-  margin:9px 0;
+  margin:10px 0;
 }
-summary { padding:12px;font-weight:700;cursor:pointer; }
+
+summary {
+  padding:13px;
+  font-weight:700;
+  cursor:pointer;
+}
+
 .detail {
-  padding:0 12px 12px;
+  padding:0 13px 13px;
   font-size:12px;
-  line-height:1.8;
+  line-height:1.9;
   color:var(--muted);
 }
+
+.detail a {
+  overflow-wrap:anywhere;
+}
+
+.method-warning {
+  padding:14px;
+  background:var(--light);
+  border-radius:10px;
+  line-height:1.85;
+}
+
+.method-link {
+  display:inline-block;
+  padding:8px 0;
+  font-weight:700;
+  font-size:12px;
+}
+
 footer {
-  text-align:center;
   margin-top:25px;
   color:var(--muted);
   font-size:11px;
+  text-align:center;
 }
+
 @media(max-width:530px) {
-  main { padding:20px 13px 55px; }
-  h1 { font-size:25px; }
-  .panel { padding:15px; }
-  .pr-cover { width:80px; }
-  .step-row strong { font-size:17px; }
-  .activity-count { font-size:15px; }
-  .pie-chart { width:175px;height:175px; }
-  .pie-hole { width:108px;height:108px; }
+  main {
+    padding:20px 13px 55px;
+  }
+
+  h1 {
+    font-size:25px;
+  }
+
+  .panel {
+    padding:15px;
+  }
+
+  .pr-cover {
+    width:80px;
+  }
+
+  .step-row strong {
+    font-size:17px;
+  }
+
+  .activity-count {
+    font-size:15px;
+  }
+
+  .pie-chart {
+    width:175px;
+    height:175px;
+  }
+
+  .pie-hole {
+    width:108px;
+    height:108px;
+  }
+
+  .relax-number strong {
+    font-size:16px;
+  }
 }
 </style>
 </head>
@@ -454,49 +885,92 @@ footer {
 
 <header>
   <h1>理想の人、何人いる？</h1>
-  <p class="muted">その条件を満たす人、日本に何人？</p>
+  <p class="header-subtitle muted">
+    その条件を満たす人、日本に何人？
+  </p>
 </header>
 
-<div class="tabs">
-  <button type="button" class="tab active" data-tab="input">01 理想の条件</button>
-  <button type="button" class="tab" data-tab="result">02 結果発表</button>
-</div>
+<!-- ===================================
+     3タブ
+=================================== -->
 
-<!-- ====================================
-     条件入力
-==================================== -->
+<nav class="tabs" aria-label="画面切り替え">
+  <button type="button"
+          class="tab active"
+          data-tab="input">
+    01 理想の条件
+  </button>
+
+  <button type="button"
+          class="tab"
+          data-tab="result">
+    02 結果発表
+  </button>
+
+  <button type="button"
+          class="tab"
+          data-tab="method">
+    03 算出方法
+  </button>
+</nav>
+
+<!-- ===================================
+     01 理想の条件
+=================================== -->
+
 <section id="input">
 
   <div class="panel">
     <h2>01 性別・国籍</h2>
+
     <div class="label">性別</div>
     <div id="sex" class="chips"></div>
+
     <div class="label">国籍</div>
     <div id="nat" class="chips"></div>
   </div>
 
   <div class="panel">
     <h2>02 年齢・身長・年収</h2>
+
     <p class="note muted">
-      紫色が選択範囲です。両端は下限なし・上限なし。
+      紫色が選択範囲です。
+      両端は下限なし・上限なし。
     </p>
+
     <div id="ranges"></div>
   </div>
 
   <div class="panel">
     <h2>03 居住都道府県</h2>
-    <p class="note muted">複数選択可。未選択なら全国です。</p>
+
+    <p class="note muted">
+      複数選択可。未選択なら全国です。
+    </p>
+
     <div id="prefs" class="chips"></div>
+
     <p>
-      <button type="button" class="chip" id="allPrefs">すべて選択</button>
-      <button type="button" class="chip" id="clearPrefs">選択解除</button>
+      <button type="button"
+              class="chip"
+              id="allPrefs">
+        すべて選択
+      </button>
+
+      <button type="button"
+              class="chip"
+              id="clearPrefs">
+        選択解除
+      </button>
     </p>
   </div>
 
   <div class="panel">
     <h2>04 婚姻歴・子ども</h2>
+
     <div class="label">婚姻歴</div>
     <div id="mar" class="chips"></div>
+
     <div class="label">子どもの有無</div>
     <div id="child" class="chips"></div>
   </div>
@@ -513,38 +987,140 @@ footer {
 
   <div class="panel">
     <h2>07 その他</h2>
+
     <div class="label">たばこ</div>
     <div id="smoke" class="chips"></div>
+
     <div class="label">飲酒</div>
     <div id="drink" class="chips"></div>
   </div>
 
-  <button type="button" id="go" class="primary">
+  <button type="button"
+          id="go"
+          class="primary">
     日本に何人いるか調べる →
   </button>
 
 </section>
 
-<!-- ====================================
-     結果
-==================================== -->
+<!-- ===================================
+     02 結果発表
+=================================== -->
+
 <section id="result" class="hidden">
 
+  <!-- メイン人数 -->
+
   <div class="panel">
-    <span class="tag">統計＋仮定による試算</span>
-    <div class="hero" style="margin-top:12px">
-      <div>あなたの条件に当てはまる未婚の人は…</div>
-      <div id="resultNumber" class="big">—</div>
-      <div class="muted">日本国内の推定人数</div>
+    <span class="tag">
+      統計＋仮定による試算
+    </span>
+
+    <div class="hero">
+
+      <div id="resultHeading">
+        あなたの条件に当てはまる
+        現在配偶者がいない人は…
+      </div>
+
+      <div id="resultNumber" class="big">
+        —
+      </div>
+
+      <div class="muted">
+        日本国内の推定人数
+      </div>
+
     </div>
+
     <p id="resultNote" class="note muted"></p>
   </div>
 
-  <!-- 交際状況・結婚願望 -->
+  <!-- =================================
+       NEW：16タイプ診断
+  ================================= -->
+
   <div class="panel">
-    <h2>その中で、結婚を望んでいる人は？</h2>
+
+    <h2>あなたの理想診断</h2>
+
+    <div class="diagnosis-card">
+
+      <div class="diagnosis-symbol">♡</div>
+
+      <div id="diagnosisId" class="diagnosis-id">
+        TYPE — / 16
+      </div>
+
+      <div id="diagnosisName"
+           class="diagnosis-name">
+        —
+      </div>
+
+      <div id="diagnosisCatch"
+           class="diagnosis-catch">
+        —
+      </div>
+
+      <p id="diagnosisKind"
+         class="diagnosis-kind"></p>
+
+    </div>
+
+    <div id="diagnosisReason"
+         class="diagnosis-reason"></div>
+
+    <p class="note muted">
+      ※ 入力条件とモデル試算に基づく
+      エンターテインメント診断です。
+      性格や恋愛能力を判定するものではありません。
+    </p>
+
+  </div>
+
+  <!-- =================================
+       NEW：条件を1つ緩める
+  ================================= -->
+
+  <div class="panel">
+
+    <h2>条件を1つ緩めたら何人増える？</h2>
+
     <p class="section-subtitle">
-      理想条件を満たす人数から、交際状況と結婚願望を考慮します。
+      ほかの条件はそのままに、
+      1つだけ条件を変えて再計算します。
+    </p>
+
+    <div class="relax-base">
+      <div class="relax-base-label">
+        現在の条件
+      </div>
+      <div id="relaxBase"
+           class="relax-base-number">
+        —
+      </div>
+    </div>
+
+    <div id="relaxList"></div>
+
+    <p class="note muted">
+      ※ 増加人数の多い順に最大3件表示。
+      条件を変更して実際に再計算した
+      モデル上の比較です。
+      現実の出会いの増加を保証するものではありません。
+    </p>
+
+  </div>
+
+  <!-- 交際・結婚願望 -->
+
+  <div class="panel">
+
+    <h2>その中で、結婚を望んでいる人は？</h2>
+
+    <p class="section-subtitle">
+      理想条件を満たす人数から、
+      交際状況と結婚願望を考慮します。
     </p>
 
     <div class="step-row">
@@ -562,38 +1138,49 @@ footer {
     <div class="step-arrow">↓</div>
 
     <div class="step-row final">
-      <span>さらに<br><b>結婚願望がある人</b></span>
+      <span>
+        さらに<br>
+        <b>結婚願望がある人</b>
+      </span>
       <strong id="stepMarriage">—</strong>
     </div>
 
     <p class="note muted">
-      ※ 交際状況と結婚意思の調査を参考にしたモデル試算です。
+      ※ 交際状況と結婚意思についての
+      モデル試算です。
       実際に出会える人数ではありません。
     </p>
+
   </div>
 
-  <!-- ★ 婚活方法 -->
+  <!-- 婚活方法 -->
+
   <div class="panel">
+
     <h2>その人たちは、どうやって婚活している？</h2>
 
     <p class="section-subtitle">
-      交際相手がおらず、結婚願望がある推定人数
-      <b id="activityBase">—</b> を対象に、
-      婚活方法別の人数を試算しています。
+      交際相手がおらず、
+      結婚願望がある推定人数
+      <b id="activityBase">—</b>
+      を対象にしています。
     </p>
 
     <div id="activityList"></div>
 
     <p class="note muted">
-      ※ 複数の方法を併用する人は各項目に重複して含まれます。
-      そのため、割合の合計は100％を超える場合があります。
-      「特に何もしていない」は、表示したどの手段も利用していない人です。
-      数値は未検証のモデル仮定を含みます。
+      ※ 手段は重複を認めて計算しています。
+      割合の合計は100％を超える場合があります。
+      「何もしていない」は全手段を利用していない
+      人の独立近似です。
     </p>
+
   </div>
 
   <!-- 子ども希望 -->
+
   <div class="panel">
+
     <h2>将来、子どもを希望する人は？</h2>
 
     <p class="section-subtitle">
@@ -603,30 +1190,38 @@ footer {
 
     <div class="child-layout">
 
-      <div id="childPie" class="pie-chart"
-           role="img" aria-label="子ども希望割合">
+      <div id="childPie"
+           class="pie-chart"
+           role="img"
+           aria-label="子ども希望割合">
+
         <div class="pie-hole">
           <small>欲しい</small>
           <strong id="piePercent">—</strong>
         </div>
+
       </div>
 
       <div class="pie-legend">
+
         <div class="legend-item">
           <span class="legend-dot yes"></span>
           <span>子どもが欲しい</span>
           <strong id="childYes">—</strong>
         </div>
+
         <div class="legend-item">
           <span class="legend-dot no"></span>
           <span>欲しくない</span>
           <strong id="childNo">—</strong>
         </div>
+
         <div class="legend-item">
           <span class="legend-dot unknown"></span>
           <span>未定・不明</span>
           <strong id="childUnknown">—</strong>
         </div>
+
       </div>
 
     </div>
@@ -636,11 +1231,14 @@ footer {
       <strong id="childYesCount">—</strong>
     </p>
 
-    <p class="note muted" id="childChartNote"></p>
+    <p id="childChartNote" class="note muted"></p>
+
   </div>
 
   <!-- 1年後 -->
+
   <div class="panel">
+
     <h2>1年後の予測</h2>
 
     <div class="forecast-row">
@@ -659,229 +1257,579 @@ footer {
     </div>
 
     <p class="note muted">
-      ※ 年齢移動と仮定した婚姻移行率によるシナリオ試算です。
-      全ての人口流入・流出は反映していません。
+      ※ 年齢移動と仮定した婚姻移行率による
+      シナリオ試算です。
+      一部の人口流入・流出を反映していません。
     </p>
+
   </div>
 
   <!-- X共有 -->
+
   <div class="panel">
-    <div class="share-title">あなたの結果をシェアしよう</div>
-    <p class="section-subtitle" style="text-align:center">
-      友達の理想の条件は、何人いる？
+
+    <h2 style="text-align:center">
+      あなたの結果をシェアしよう
+    </h2>
+
+    <p class="section-subtitle"
+       style="text-align:center">
+      友達の理想は何タイプ？
     </p>
+
     <div class="share-actions">
-      <button type="button" id="shareX" class="share-btn share-x">
+
+      <button type="button"
+              id="shareX"
+              class="share-btn share-x">
         Xでシェア
       </button>
-      <button type="button" id="copyResult" class="share-btn share-copy">
+
+      <button type="button"
+              id="copyResult"
+              class="share-btn share-copy">
         結果をコピー
       </button>
+
     </div>
-    <p id="shareFeedback" class="share-feedback" aria-live="polite"></p>
+
+    <p id="shareFeedback"
+       class="share-feedback"
+       aria-live="polite"></p>
+
   </div>
 
-  <!-- 楽天PR -->
+  <!-- 楽天広告 -->
+
   <section class="panel" id="affiliateSection">
+
     <div class="pr-heading">
-      <h2 style="margin:0">恋愛と結婚のヒント</h2>
+      <h2 style="margin:0">
+        恋愛と結婚のヒント
+      </h2>
       <span class="pr-badge">PR・広告</span>
     </div>
+
     <p class="note muted">
-      理想の条件だけでは測れない、恋愛や結婚を考えるための本。
+      理想の条件だけでは測れない、
+      恋愛や結婚を考えるための本。
     </p>
+
     <div id="affiliateBooks"></div>
+
     <p class="pr-note">
-      ※ このエリアには楽天アフィリエイト広告が含まれます。
-      リンク先で購入すると、運営者に紹介料が支払われる場合があります。
-      広告は人数計算に影響しません。
+      ※ 楽天アフィリエイト広告を含みます。
+      購入により運営者に紹介料が支払われる場合があります。
     </p>
+
   </section>
 
-  <!-- データ説明 -->
   <div class="panel">
-    <h2>データ・推計方法</h2>
 
-    <details>
-      <summary>基礎人口・複合条件</summary>
-      <div class="detail">
-        18〜79歳の暫定的な年齢階級別未婚人口を基礎に、
-        性別・婚姻歴・年収・身長・学歴などを推計しています。
-        基礎値の原表照合は未完了です。
-        <p>
-          <a href="https://www.e-stat.go.jp/en/dbview?sid=0004066253"
-             target="_blank" rel="noopener noreferrer">
-             e-Stat（参照統計表）
-          </a>
-        </p>
-        18〜19歳は15〜19歳階級を按分した暫定値です。
-        各条件の比率には検証前の仮定を含みます。
-      </div>
-    </details>
+    <p class="note muted">
+      人数の算出には公的調査の参考値と
+      未検証のモデル仮定が含まれます。
+    </p>
 
-    <details>
-      <summary>交際状況・結婚願望</summary>
-      <div class="detail">
-        18〜34歳の未婚者について、
-        国立社会保障・人口問題研究所
-        「第16回出生動向基本調査（2021年）」を参考にしています。
-        <p>
-          <a href="https://www.ipss.go.jp/ps-doukou/j/doukou16/JNFS16S_FreqTable.html"
-             target="_blank" rel="noopener noreferrer">
-             出生動向基本調査の集計表
-          </a>
-        </p>
-        交際状況と結婚意思の同時該当割合は直接取得できていないため
-        独立近似を使用しています。
-        35歳以上や離別・死別者については仮定値です。
-      </div>
-    </details>
+    <button type="button"
+            class="secondary-button"
+            id="openMethod">
+      データ・推計方法を見る
+    </button>
 
-    <details>
-      <summary>婚活方法別人数の算出方法</summary>
-      <div class="detail">
-        結婚願望があり、交際相手がいないと推計した人を分母にします。
-        マッチングアプリ、結婚相談所、婚活イベント、
-        友人・知人の紹介、その他の活動の各利用確率を
-        年齢・性別に応じて適用します。
-
-        <p>
-          各方法の人数＝対象人数×当該方法の利用確率です。
-          同じ人が複数の方法を利用する場合は、
-          各方法の人数に重複計上されます。
-        </p>
-
-        <p>
-          「何もしていない」は、全ての方法を利用していない割合を
-          各手段の非利用確率の積で近似しています。
-          この独立仮定には検証が必要です。
-        </p>
-
-        <p>
-          参考：
-          <a href="https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/548fa1ab-032d-4179-a9f1-d1b92b11437b/4b0c5a8f/20240724_policies_kodomo-research_r05-ishikichosa_04.pdf"
-             target="_blank" rel="noopener noreferrer">
-            こども政策推進に関する意識調査
-          </a>
-        </p>
-
-        <p>
-          この版の婚活手段別係数は、公的調査の
-          正確な年齢・性別交差集計から取得した値ではなく、
-          調査傾向を参考に設定した仮定値です。
-          特に79歳までの推計は不確実性が高くなります。
-        </p>
-      </div>
-    </details>
-
-    <details>
-      <summary>子ども希望・1年後予測</summary>
-      <div class="detail">
-        子ども希望は出生動向基本調査を参考にしたモデル推計です。
-        調査の対象外年齢では仮定値を使用します。
-        <p>
-          1年後の予測は、対象年齢を1歳進め、
-          仮定した婚姻移行率を適用しています。
-          所得変化・転居・新規離別などは十分に反映していません。
-        </p>
-      </div>
-    </details>
-
-    <details>
-      <summary>プライバシー・免責</summary>
-      <div class="detail">
-        入力内容の計算はブラウザ内で行います。
-        サイト独自のプロフィール保存は行いません。
-        GitHub Pagesのログや楽天広告の通信は別です。
-        <p>
-          本サービスの人数は、検証前のモデルによる試算です。
-          実在する該当者数、婚活サービスの実際の登録者数、
-          出会える確率を示すものではありません。
-        </p>
-      </div>
-    </details>
   </div>
 
-  <button type="button" id="back" class="primary">
+  <button type="button"
+          id="back"
+          class="primary">
     条件を変えてもう一度
   </button>
+
 </section>
 
-<footer>理想の人、何人いる？｜試算シミュレーター</footer>
+<!-- ===================================
+     03 データ・推計方法
+=================================== -->
+
+<section id="method" class="hidden">
+
+  <div class="panel">
+
+    <h2>データ・推計方法</h2>
+
+    <div class="method-warning">
+
+      このサイトの人数は、公的統計の参考値と
+      仮定した割合を組み合わせた
+      <b>検証前の試算</b>です。
+
+      <p>
+        実在する該当者の正確な人数や、
+        実際に出会える確率を表すものではありません。
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="panel">
+
+    <h2>使用している統計と計算の前提</h2>
+
+    <details open>
+      <summary>01 基礎人口</summary>
+
+      <div class="detail">
+
+        18〜79歳の年齢階級別未婚人口を
+        暫定的な基礎値として使用しています。
+
+        <p>
+          <a href="https://www.e-stat.go.jp/en/dbview?sid=0004066253"
+             target="_blank"
+             rel="noopener noreferrer">
+            e-Statの参照統計表
+          </a>
+        </p>
+
+        <p>
+          基礎人口の原表照合は未完了です。
+          18〜19歳は15〜19歳の年齢階級を
+          按分した近似値を使用しています。
+        </p>
+
+        <p>
+          離別・死別人口は未婚人口を基準にした
+          仮定倍率で算出しています。
+          そのため、公的統計の婚姻歴別実測人数ではありません。
+        </p>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>02 理想条件の人数計算</summary>
+
+      <div class="detail">
+
+        基礎人口に以下の条件別割合を反映しています。
+
+        <p>
+          年齢、性別、国籍、居住都道府県、
+          婚姻歴、子どもの有無、学歴、
+          雇用形態、身長、年収、
+          喫煙、飲酒。
+        </p>
+
+        <p>
+          年収は性別・年齢・雇用形態による
+          仮定上の分布モデル、
+          身長は性別・年齢による
+          仮定上の正規分布モデルを利用します。
+        </p>
+
+        <p>
+          条件間の相関を完全には考慮していません。
+          各係数は最終的な統計検証が必要です。
+        </p>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>03 交際状況・結婚願望</summary>
+
+      <div class="detail">
+
+        18〜34歳の未婚者について、
+        国立社会保障・人口問題研究所
+        「第16回出生動向基本調査（2021年）」
+        の男女別集計を参考にしています。
+
+        <p>
+          <a href="https://www.ipss.go.jp/ps-doukou/j/doukou16/JNFS16S_FreqTable.html"
+             target="_blank"
+             rel="noopener noreferrer">
+            第16回出生動向基本調査
+          </a>
+        </p>
+
+        <p>
+          交際相手がいない割合と結婚意思の割合は
+          独立近似で掛けています。
+        </p>
+
+        <p>
+          交際相手なし・結婚意思ありの
+          同時該当割合を直接集計したものではありません。
+          35歳以上や離別・死別者については仮定値です。
+        </p>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>04 婚活手段別の人数</summary>
+
+      <div class="detail">
+
+        「理想条件に合う」
+        「交際相手がいない」
+        「結婚願望がある」
+        の3条件を満たす推定人数を分母としています。
+
+        <p>
+          マッチングアプリ、
+          結婚相談所・結婚支援センター、
+          婚活パーティー・街コン、
+          友人・知人の紹介、
+          その他の婚活活動を
+          重複可能な項目として計算します。
+        </p>
+
+        <p>
+          複数の手段を利用している人は
+          各手段に重複して計上されます。
+        </p>
+
+        <p>
+          「何もしていない」は
+          すべての手段の非利用率を掛け合わせる
+          独立近似です。
+        </p>
+
+        <p>
+          年齢・性別ごとの利用率は
+          未検証の仮定値であり、
+          実際のサービス登録人数ではありません。
+        </p>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>05 子ども希望の円グラフ</summary>
+
+      <div class="detail">
+
+        出生動向基本調査の希望子ども数を
+        参考にしています。
+
+        <p>
+          「子どもが欲しい」
+          「欲しくない」
+          「未定・不明」
+          の3区分で表示します。
+        </p>
+
+        <p>
+          調査対象外年齢や
+          離別・死別者については仮定値を使用します。
+          また、交際相手なし・結婚願望ありの人だけを
+          直接集計した割合ではありません。
+        </p>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>06 1年後の人数予測</summary>
+
+      <div class="detail">
+
+        年齢を1歳進め、
+        婚姻歴ごとに仮定した
+        年間婚姻移行率を適用します。
+
+        <p>
+          年齢条件から外れる人、
+          新たに年齢条件に入る人の一部を考慮します。
+        </p>
+
+        <p>
+          17歳から18歳への流入、
+          新規離婚・死別による流入、
+          移住、所得変化などは
+          十分に反映していません。
+        </p>
+
+        <p>
+          したがって、正確な人口予測ではなく
+          シナリオ試算です。
+        </p>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>07 条件を1つ緩めた人数比較</summary>
+
+      <div class="detail">
+
+        入力された条件のうち、
+        変更可能な項目を1つずつ緩めます。
+
+        <p>
+          年収は下限を100万円下げる、
+          身長は下限を5cm下げる、
+          年齢は上下限を2歳広げることを
+          基本としています。
+        </p>
+
+        <p>
+          上限のみ指定された場合は上限を緩めます。
+          カテゴリ条件では、制限を解除した
+          場合の人数も比較します。
+        </p>
+
+        <p>
+          変更前後に同一の人口モデルを使用し、
+          変更対象以外の条件は固定します。
+        </p>
+
+        <p>
+          差分の大きい順に最大3件表示します。
+          すべての条件を同じ単位で
+          緩和するものではありません。
+        </p>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>08 16タイプの理想診断</summary>
+
+      <div class="detail">
+
+        指定した条件の数、
+        推定人数の希少性、
+        条件を緩めた場合の増加量、
+        指定条件の種類から
+        診断タイプを決定します。
+
+        <p>
+          ランダムではありません。
+          同じ条件なら同じタイプが出るようにします。
+        </p>
+
+        <p>
+          タイプはエンターテインメント上の表現です。
+          本人の性格、価値、恋愛能力、
+          実際の結婚可能性を判定していません。
+        </p>
+
+      </div>
+    </details>
+
+    <details>
+      <summary>09 プライバシー・免責事項</summary>
+
+      <div class="detail">
+
+        入力条件の計算はブラウザ内で行います。
+        アプリ独自のプロフィール保存は行いません。
+
+        <p>
+          GitHub Pagesへのアクセス、
+          楽天広告画像の取得、
+          Xへの共有時の外部通信は別です。
+        </p>
+
+        <p>
+          計算結果は参考・娯楽目的の試算です。
+          正確な人数や実際の出会いを保証しません。
+        </p>
+
+      </div>
+    </details>
+
+  </div>
+
+  <button type="button"
+          class="primary"
+          id="methodToInput">
+    理想の条件を設定する
+  </button>
+
+</section>
+
+<footer>
+  理想の人、何人いる？｜試算シミュレーター
+</footer>
+
 </main>
 
 <script>
 "use strict";
 
-/*
-=================================================
- ★ 楽天アフィリエイト管理
+/* ===========================================
+   共通処理
+=========================================== */
 
- comment を変更すればコメントを編集できます。
- 書籍リンクは取得済みの4件です。
+const $ = id => document.getElementById(id);
 
- 注意：楽天公式広告コードの取り扱いは
- 楽天の最新規約に従ってください。
-=================================================
-*/
+const SITE_URL =
+  "https://iamyuki-ops.github.io/risounohito/";
+
+const format = n =>
+  Math.round(n).toLocaleString("ja-JP");
+
+const clamp = (n,a,b) =>
+  Math.max(a,Math.min(b,n));
+
+const sum = arr =>
+  arr.reduce((a,b)=>a+b,0);
+
+/* ===========================================
+   楽天アフィリエイト
+=========================================== */
 
 const RAKUTEN_ID =
   "58e8a18a.113d7a08.58e8a18b.ee347745";
 
 const AFFILIATE_BOOKS = [
   {
-    title:"ロジカル×ラブ婚活 「本当の幸せ」が一生つづく！",
+    title:
+      "ロジカル×ラブ婚活 「本当の幸せ」が一生つづく！",
     item:"18648056",
-    image:"https://hbb.afl.rakuten.co.jp/hgb/"+RAKUTEN_ID+
-      "/?me_id=1213310&item_id=21971753"+
-      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp"+
-      "%2F%400_mall%2Fbook%2Fcabinet%2F4922"+
-      "%2F9784023334922_1_2.jpg%3F_ex%3D240x240"+
+    image:
+      "https://hbb.afl.rakuten.co.jp/hgb/" +
+      RAKUTEN_ID +
+      "/?me_id=1213310&item_id=21971753" +
+      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp" +
+      "%2F%400_mall%2Fbook%2Fcabinet%2F4922" +
+      "%2F9784023334922_1_2.jpg%3F_ex%3D240x240" +
       "&s=240x240&t=picttext",
     comment:"理想より、幸せを選ぶ。"
   },
   {
-    title:"1年で決める！ アラサー女の婚活戦略マニュアル",
+    title:
+      "1年で決める！ アラサー女の婚活戦略マニュアル",
     item:"18395547",
-    image:"https://hbb.afl.rakuten.co.jp/hgb/"+RAKUTEN_ID+
-      "/?me_id=1213310&item_id=21797401"+
-      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp"+
-      "%2F%400_mall%2Fbook%2Fcabinet%2F1811"+
-      "%2F9784408651811_1_5.jpg%3F_ex%3D240x240"+
+    image:
+      "https://hbb.afl.rakuten.co.jp/hgb/" +
+      RAKUTEN_ID +
+      "/?me_id=1213310&item_id=21797401" +
+      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp" +
+      "%2F%400_mall%2Fbook%2Fcabinet%2F1811" +
+      "%2F9784408651811_1_5.jpg%3F_ex%3D240x240" +
       "&s=240x240&t=picttext",
     comment:"婚活、いつまで続ける？"
   },
   {
-    title:"いい男になって人生を加速させる婚活戦略書",
+    title:
+      "いい男になって人生を加速させる婚活戦略書",
     item:"18580472",
-    image:"https://hbb.afl.rakuten.co.jp/hgb/"+RAKUTEN_ID+
-      "/?me_id=1213310&item_id=21913917"+
-      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp"+
-      "%2F%400_mall%2Fbook%2Fcabinet%2F6636"+
-      "%2F9784864946636_1_5.jpg%3F_ex%3D240x240"+
+    image:
+      "https://hbb.afl.rakuten.co.jp/hgb/" +
+      RAKUTEN_ID +
+      "/?me_id=1213310&item_id=21913917" +
+      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp" +
+      "%2F%400_mall%2Fbook%2Fcabinet%2F6636" +
+      "%2F9784864946636_1_5.jpg%3F_ex%3D240x240" +
       "&s=240x240&t=picttext",
     comment:"選ばれる男には理由がある。"
   },
   {
     title:"京大式ストロング婚活論",
     item:"18339118",
-    image:"https://hbb.afl.rakuten.co.jp/hgb/"+RAKUTEN_ID+
-      "/?me_id=1213310&item_id=21700608"+
-      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp"+
-      "%2F%400_mall%2Fbook%2Fcabinet%2F7573"+
-      "%2F9784862577573_1_10.jpg%3F_ex%3D240x240"+
+    image:
+      "https://hbb.afl.rakuten.co.jp/hgb/" +
+      RAKUTEN_ID +
+      "/?me_id=1213310&item_id=21700608" +
+      "&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp" +
+      "%2F%400_mall%2Fbook%2Fcabinet%2F7573" +
+      "%2F9784862577573_1_10.jpg%3F_ex%3D240x240" +
       "&s=240x240&t=picttext",
     comment:"婚活も、戦略がすべて？"
   }
 ];
 
-/*
-=================================================
- ★ 年齢階級別の暫定基礎人口
+function rakutenUrl(item) {
+  const destination =
+    "https://item.rakuten.co.jp/book/" +
+    item + "/";
 
- 正式な原表照合は未完了。
-=================================================
-*/
+  return (
+    "https://hb.afl.rakuten.co.jp/ichiba/" +
+    RAKUTEN_ID +
+    "/?pc=" +
+    encodeURIComponent(destination) +
+    "&link_type=picttext"
+  );
+}
+
+function renderAffiliate() {
+  const container = $("affiliateBooks");
+  container.replaceChildren();
+
+  $("affiliateSection").classList.toggle(
+    "hidden",
+    AFFILIATE_BOOKS.length === 0
+  );
+
+  AFFILIATE_BOOKS.forEach(book => {
+    const card = document.createElement("div");
+    card.className = "pr-book";
+
+    const row = document.createElement("div");
+    row.className = "pr-book-main";
+
+    const cover = document.createElement("a");
+    cover.className = "pr-cover";
+    cover.href = rakutenUrl(book.item);
+    cover.target = "_blank";
+    cover.rel = "sponsored nofollow noopener noreferrer";
+
+    const img = document.createElement("img");
+    img.src = book.image;
+    img.alt = book.title + "の表紙";
+    img.loading = "lazy";
+
+    img.onerror = () => {
+      img.style.display = "none";
+      cover.textContent = "楽天で本を見る";
+    };
+
+    cover.appendChild(img);
+
+    const info = document.createElement("div");
+    info.className = "pr-info";
+
+    const title = document.createElement("a");
+    title.className = "pr-title";
+    title.href = rakutenUrl(book.item);
+    title.target = "_blank";
+    title.rel = "sponsored nofollow noopener noreferrer";
+    title.textContent = book.title;
+    info.appendChild(title);
+
+    if (book.comment) {
+      const comment = document.createElement("div");
+      comment.className = "pr-comment";
+      comment.textContent = book.comment;
+      info.appendChild(comment);
+    }
+
+    const link = document.createElement("a");
+    link.className = "pr-button";
+    link.href = rakutenUrl(book.item);
+    link.target = "_blank";
+    link.rel = "sponsored nofollow noopener noreferrer";
+    link.textContent = "PR｜楽天で本を見る";
+
+    info.appendChild(link);
+
+    row.append(cover,info);
+    card.appendChild(row);
+    container.appendChild(card);
+  });
+}
+
+/* ===========================================
+   人口・推計モデル
+   ※ 未検証の仮定を含む
+=========================================== */
 
 const AGE_BASE = [
   {from:18,to:19,count:5509144*2/5},
@@ -898,12 +1846,6 @@ const AGE_BASE = [
   {from:70,to:74,count:736047},
   {from:75,to:79,count:568551}
 ];
-
-/*
-=================================================
- ★ 複合条件の仮定モデル
-=================================================
-*/
 
 const MODEL = {
   divorced:[
@@ -948,32 +1890,26 @@ const MODEL = {
   }
 };
 
-/*
-=================================================
- ★ 交際状況・結婚願望
-
- 18〜34歳の未婚者は出生動向基本調査を参考。
- その他の年齢・婚姻歴は仮定値。
-=================================================
-*/
-
 const RELATIONSHIP_MODEL = {
-  noPartnerYoung:{male:.722,female:.642},
-  wantsMarriageYoung:{male:.814,female:.843},
-  noPartnerOlder:{male:.70,female:.66},
-  wantsMarriageOlder:{male:.65,female:.65},
+  noPartnerYoung:{
+    male:.722,
+    female:.642
+  },
+  wantsMarriageYoung:{
+    male:.814,
+    female:.843
+  },
+  noPartnerOlder:{
+    male:.70,
+    female:.66
+  },
+  wantsMarriageOlder:{
+    male:.65,
+    female:.65
+  },
   noPartnerPreviouslyMarried:.73,
   wantsMarriagePreviouslyMarried:.56
 };
-
-/*
-=================================================
- ★ 子ども希望モデル
-
- [欲しい,欲しくない,未定・不明]
- 年齢が高い層は仮定値です。
-=================================================
-*/
 
 const CHILD_WISH_MODEL = {
   young:{
@@ -994,30 +1930,6 @@ const CHILD_WISH_MODEL = {
   }
 };
 
-/*
-=================================================
- ★ NEW：婚活方法別の利用率モデル
-
- 重要：
-  以下は調査の傾向を参考に設定した
-  検証前の仮定値です。
-
-  分母：
-  「理想条件に合い、交際相手がいなくて、
-    結婚願望がある人」
-
-  各利用率は複数回答とみなし、
-  それぞれ独立に計算します。
-
-  何もしていない割合は
-  (1-アプリ率)×(1-相談所率)×...
-  で近似します。
-
-  ※ これらの係数を公的統計の実測値と
-     解釈しないでください。
-=================================================
-*/
-
 const ACTIVITY_TYPES = [
   {id:"app",label:"マッチングアプリ"},
   {id:"agency",label:"結婚相談所・結婚支援センター"},
@@ -1026,8 +1938,6 @@ const ACTIVITY_TYPES = [
   {id:"other",label:"その他の婚活・出会い活動"}
 ];
 
-// 30代未満〜30代を中心とした仮定利用率。
-// 年齢調整は後述の activityRate() で行います。
 const ACTIVITY_MODEL = {
   male:{
     app:.16,
@@ -1045,28 +1955,6 @@ const ACTIVITY_MODEL = {
   }
 };
 
-/*
-=================================================
- 年間婚姻移行率（仮定）
-=================================================
-*/
-
-function assumedMarriageRate(age,marital) {
-  if(marital!=="未婚") {
-    if(age<40)return .025;
-    if(age<55)return .015;
-    return .005;
-  }
-  if(age<20)return .002;
-  if(age<25)return .025;
-  if(age<35)return .075;
-  if(age<40)return .045;
-  if(age<45)return .025;
-  if(age<50)return .015;
-  if(age<60)return .008;
-  return .003;
-}
-
 const PREF_WEIGHTS = [
   4.1,.9,.9,1.9,.7,.8,1.4,2.3,1.5,1.5,
   6,5.1,11.7,7.5,1.7,.8,.9,.6,.6,1.6,
@@ -1075,630 +1963,745 @@ const PREF_WEIGHTS = [
   .5,4.2,.6,1,1.4,.9,.8,1.3,1.2
 ];
 
-/*
-=================================================
- 共通関数
-=================================================
-*/
-
-const $ = id=>document.getElementById(id);
-const SITE_URL =
-  "https://iamyuki-ops.github.io/risounohito/";
-const format = n=>Math.round(n).toLocaleString("ja-JP");
-const clamp = (n,a,b)=>Math.max(a,Math.min(b,n));
-const sum = a=>a.reduce((x,y)=>x+y,0);
-
-/*
-=================================================
- 楽天アフィリエイト
-=================================================
-*/
-
-function rakutenUrl(item) {
-  const destination="https://item.rakuten.co.jp/book/"+item+"/";
-  return "https://hb.afl.rakuten.co.jp/ichiba/"+
-    RAKUTEN_ID+"/?pc="+encodeURIComponent(destination)+
-    "&link_type=picttext";
-}
-
-function renderAffiliate() {
-  const container=$("affiliateBooks");
-  container.replaceChildren();
-  $("affiliateSection").classList.toggle(
-    "hidden",AFFILIATE_BOOKS.length===0
-  );
-
-  AFFILIATE_BOOKS.forEach(book=>{
-    const card=document.createElement("div");
-    card.className="pr-book";
-    const row=document.createElement("div");
-    row.className="pr-book-main";
-
-    const cover=document.createElement("a");
-    cover.className="pr-cover";
-    cover.href=rakutenUrl(book.item);
-    cover.target="_blank";
-    cover.rel="sponsored nofollow noopener noreferrer";
-
-    const img=document.createElement("img");
-    img.src=book.image;
-    img.alt=book.title+"の表紙";
-    img.loading="lazy";
-    img.onerror=()=>{
-      img.style.display="none";
-      cover.textContent="楽天で本を見る";
-    };
-    cover.appendChild(img);
-
-    const info=document.createElement("div");
-    info.className="pr-info";
-
-    const title=document.createElement("a");
-    title.className="pr-title";
-    title.href=rakutenUrl(book.item);
-    title.target="_blank";
-    title.rel="sponsored nofollow noopener noreferrer";
-    title.textContent=book.title;
-    info.appendChild(title);
-
-    if(book.comment && book.comment.trim()) {
-      const comment=document.createElement("div");
-      comment.className="pr-comment";
-      comment.textContent=book.comment;
-      info.appendChild(comment);
-    }
-
-    const link=document.createElement("a");
-    link.className="pr-button";
-    link.href=rakutenUrl(book.item);
-    link.target="_blank";
-    link.rel="sponsored nofollow noopener noreferrer";
-    link.textContent="PR｜楽天で本を見る";
-    info.appendChild(link);
-
-    row.append(cover,info);
-    card.appendChild(row);
-    container.appendChild(card);
-  });
-}
-
-/*
-=================================================
- 選択肢
-=================================================
-*/
+/* ===========================================
+   選択項目
+=========================================== */
 
 const SCHEMA = {
-  sex:["男性","女性","指定なし"],
-  nat:["日本国籍","外国籍","指定なし"],
-  mar:["未婚","離婚歴あり","死別歴あり","指定なし"],
-  child:["なし","あり","指定なし"],
-  edu:["中卒","高卒","専門卒","大学卒","院卒","指定なし"],
-  job:[
-    "正社員","公務員","契約社員・派遣社員",
-    "パート・アルバイト",
-    "自営業・フリーランス","無職・その他",
+  sex:[
+    "男性","女性","指定なし"
+  ],
+  nat:[
+    "日本国籍","外国籍","指定なし"
+  ],
+  mar:[
+    "未婚","離婚歴あり","死別歴あり",
     "指定なし"
   ],
-  smoke:["吸わない","吸う","指定なし"],
-  drink:["飲まない","ときどき飲む","よく飲む","指定なし"]
+  child:[
+    "なし","あり","指定なし"
+  ],
+  edu:[
+    "中卒","高卒","専門卒",
+    "大学卒","院卒","指定なし"
+  ],
+  job:[
+    "正社員",
+    "公務員",
+    "契約社員・派遣社員",
+    "パート・アルバイト",
+    "自営業・フリーランス",
+    "無職・その他",
+    "指定なし"
+  ],
+  smoke:[
+    "吸わない","吸う","指定なし"
+  ],
+  drink:[
+    "飲まない","ときどき飲む",
+    "よく飲む","指定なし"
+  ]
 };
 
-const chosen=Object.fromEntries(
-  Object.keys(SCHEMA).map(k=>[k,["指定なし"]])
+const chosen = Object.fromEntries(
+  Object.keys(SCHEMA).map(
+    key => [key,["指定なし"]]
+  )
 );
 
 function paintSelections() {
-  Object.keys(SCHEMA).forEach(key=>{
-    [...$(key).children].forEach(button=>{
-      const on=chosen[key].includes(button.textContent);
-      button.classList.toggle("on",on);
-      button.setAttribute("aria-pressed",String(on));
+  Object.keys(SCHEMA).forEach(key => {
+    [...$(key).children].forEach(button => {
+      const selected =
+        chosen[key].includes(button.textContent);
+
+      button.classList.toggle("on",selected);
+
+      button.setAttribute(
+        "aria-pressed",
+        String(selected)
+      );
     });
   });
 }
 
-Object.keys(SCHEMA).forEach(key=>{
-  SCHEMA[key].forEach(value=>{
-    const button=document.createElement("button");
-    button.type="button";
-    button.className="chip";
-    button.textContent=value;
+Object.keys(SCHEMA).forEach(key => {
+  SCHEMA[key].forEach(value => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "chip";
+    button.textContent = value;
 
-    button.onclick=()=>{
-      if(value==="指定なし"){
-        chosen[key]=["指定なし"];
-      }else if(key==="sex"||key==="nat"){
-        chosen[key]=[value];
-      }else{
-        let a=chosen[key].filter(x=>x!=="指定なし");
-        a=a.includes(value)
-          ?a.filter(x=>x!==value)
-          :[...a,value];
-        chosen[key]=a.length?a:["指定なし"];
+    button.onclick = () => {
+      if (value === "指定なし") {
+        chosen[key] = ["指定なし"];
+      } else if (key === "sex" || key === "nat") {
+        chosen[key] = [value];
+      } else {
+        let current = chosen[key].filter(
+          item => item !== "指定なし"
+        );
+
+        current = current.includes(value)
+          ? current.filter(item => item !== value)
+          : [...current,value];
+
+        chosen[key] = current.length
+          ? current
+          : ["指定なし"];
       }
+
       paintSelections();
     };
+
     $(key).appendChild(button);
   });
 });
+
 paintSelections();
 
-/*
-=================================================
- 都道府県
-=================================================
-*/
+/* ===========================================
+   都道府県
+=========================================== */
 
-const PREFS=(
-  "北海道 青森県 岩手県 宮城県 秋田県 山形県 福島県 "+
-  "茨城県 栃木県 群馬県 埼玉県 千葉県 東京都 神奈川県 "+
-  "新潟県 富山県 石川県 福井県 山梨県 長野県 岐阜県 "+
-  "静岡県 愛知県 三重県 滋賀県 京都府 大阪府 兵庫県 "+
-  "奈良県 和歌山県 鳥取県 島根県 岡山県 広島県 山口県 "+
-  "徳島県 香川県 愛媛県 高知県 福岡県 佐賀県 長崎県 "+
+const PREFS = (
+  "北海道 青森県 岩手県 宮城県 秋田県 山形県 " +
+  "福島県 茨城県 栃木県 群馬県 埼玉県 千葉県 " +
+  "東京都 神奈川県 新潟県 富山県 石川県 福井県 " +
+  "山梨県 長野県 岐阜県 静岡県 愛知県 三重県 " +
+  "滋賀県 京都府 大阪府 兵庫県 奈良県 和歌山県 " +
+  "鳥取県 島根県 岡山県 広島県 山口県 徳島県 " +
+  "香川県 愛媛県 高知県 福岡県 佐賀県 長崎県 " +
   "熊本県 大分県 宮崎県 鹿児島県 沖縄県"
 ).split(" ");
 
-const selectedPrefs=new Set();
+const selectedPrefs = new Set();
 
 function paintPrefs() {
-  [...$("prefs").children].forEach(button=>{
+  [...$("prefs").children].forEach(button => {
     button.classList.toggle(
-      "on",selectedPrefs.has(button.textContent)
+      "on",
+      selectedPrefs.has(button.textContent)
     );
   });
 }
 
-PREFS.forEach(name=>{
-  const button=document.createElement("button");
-  button.type="button";
-  button.className="chip";
-  button.textContent=name;
-  button.onclick=()=>{
-    if(selectedPrefs.has(name))selectedPrefs.delete(name);
-    else selectedPrefs.add(name);
+PREFS.forEach(name => {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "chip";
+  button.textContent = name;
+
+  button.onclick = () => {
+    if (selectedPrefs.has(name)) {
+      selectedPrefs.delete(name);
+    } else {
+      selectedPrefs.add(name);
+    }
     paintPrefs();
   };
+
   $("prefs").appendChild(button);
 });
 
-$("allPrefs").onclick=()=>{
-  PREFS.forEach(name=>selectedPrefs.add(name));
+$("allPrefs").onclick = () => {
+  PREFS.forEach(name => selectedPrefs.add(name));
   paintPrefs();
 };
 
-$("clearPrefs").onclick=()=>{
+$("clearPrefs").onclick = () => {
   selectedPrefs.clear();
   paintPrefs();
 };
 
-/*
-=================================================
- 範囲スライダー
-=================================================
-*/
+/* ===========================================
+   範囲スライダー
+=========================================== */
 
-const RANGES=[
-  {id:"age",name:"年齢",unit:"歳",min:18,max:79,step:1,lo:null,hi:null},
-  {id:"height",name:"身長",unit:"cm",min:140,max:195,step:1,lo:null,hi:null},
-  {id:"income",name:"年収",unit:"万円",min:0,max:2000,step:10,lo:null,hi:null}
+const RANGES = [
+  {
+    id:"age",
+    name:"年齢",
+    unit:"歳",
+    min:18,
+    max:79,
+    step:1,
+    lo:null,
+    hi:null
+  },
+  {
+    id:"height",
+    name:"身長",
+    unit:"cm",
+    min:140,
+    max:195,
+    step:1,
+    lo:null,
+    hi:null
+  },
+  {
+    id:"income",
+    name:"年収",
+    unit:"万円",
+    min:0,
+    max:2000,
+    step:10,
+    lo:null,
+    hi:null
+  }
 ];
 
-RANGES.forEach(r=>{
-  const box=document.createElement("div");
-  box.className="range";
-  box.innerHTML=`
+RANGES.forEach(range => {
+  const box = document.createElement("div");
+  box.className = "range";
+
+  box.innerHTML = `
     <div class="range-head">
-      <span>${r.name}</span><strong></strong>
+      <span>${range.name}</span>
+      <strong></strong>
     </div>
     <div class="track">
       <div class="rail"></div>
       <div class="fill"></div>
-      <div class="thumb" data-side="lo" role="slider" tabindex="0"></div>
-      <div class="thumb" data-side="hi" role="slider" tabindex="0"></div>
+      <div class="thumb"
+           data-side="lo"
+           role="slider"
+           tabindex="0"></div>
+      <div class="thumb"
+           data-side="hi"
+           role="slider"
+           tabindex="0"></div>
     </div>
     <div class="ends">
-      <span>${r.min}${r.unit}（下限なし）</span>
-      <span>${r.max}${r.unit}（上限なし）</span>
-    </div>`;
+      <span>${range.min}${range.unit}（下限なし）</span>
+      <span>${range.max}${range.unit}（上限なし）</span>
+    </div>
+  `;
+
   $("ranges").appendChild(box);
 
-  const track=box.querySelector(".track");
-  const thumbs=[...box.querySelectorAll(".thumb")];
-  const fill=box.querySelector(".fill");
-  const label=box.querySelector("strong");
-  const pos=x=>`calc(12px + (100% - 24px) * ${x})`;
+  const track = box.querySelector(".track");
+  const thumbs = [...box.querySelectorAll(".thumb")];
+  const fill = box.querySelector(".fill");
+  const label = box.querySelector("strong");
 
-  function draw(){
-    const lo=r.lo??r.min;
-    const hi=r.hi??r.max;
-    const a=(lo-r.min)/(r.max-r.min);
-    const b=(hi-r.min)/(r.max-r.min);
-    thumbs[0].style.left=pos(a);
-    thumbs[1].style.left=pos(b);
-    fill.style.left=pos(a);
-    fill.style.width=`calc((100% - 24px) * ${b-a})`;
-    label.textContent=
-      (r.lo===null?"下限なし":r.lo+r.unit)+
-      " 〜 "+
-      (r.hi===null?"上限なし":r.hi+r.unit);
-    thumbs.forEach((thumb,i)=>{
-      thumb.setAttribute("aria-label",r.name+(i?"上限":"下限"));
-      thumb.setAttribute("aria-valuemin",r.min);
-      thumb.setAttribute("aria-valuemax",r.max);
-      thumb.setAttribute("aria-valuenow",i?hi:lo);
+  const position = x =>
+    `calc(12px + (100% - 24px) * ${x})`;
+
+  function draw() {
+    const lo = range.lo ?? range.min;
+    const hi = range.hi ?? range.max;
+
+    const left =
+      (lo-range.min)/(range.max-range.min);
+
+    const right =
+      (hi-range.min)/(range.max-range.min);
+
+    thumbs[0].style.left = position(left);
+    thumbs[1].style.left = position(right);
+
+    fill.style.left = position(left);
+    fill.style.width =
+      `calc((100% - 24px) * ${right-left})`;
+
+    label.textContent =
+      (range.lo === null
+        ? "下限なし"
+        : range.lo + range.unit) +
+      " 〜 " +
+      (range.hi === null
+        ? "上限なし"
+        : range.hi + range.unit);
+
+    thumbs.forEach((thumb,index) => {
+      thumb.setAttribute(
+        "aria-label",
+        range.name + (index ? "上限" : "下限")
+      );
+      thumb.setAttribute("aria-valuemin",range.min);
+      thumb.setAttribute("aria-valuemax",range.max);
+      thumb.setAttribute(
+        "aria-valuenow",
+        index ? hi : lo
+      );
     });
   }
 
-  function setValue(side,raw){
-    const rounded=r.min+Math.round((raw-r.min)/r.step)*r.step;
-    const value=clamp(rounded,r.min,r.max);
-    if(side==="lo"){
-      r.lo=value<=r.min
-        ?null:Math.min(value,r.hi??r.max);
-    }else{
-      r.hi=value>=r.max
-        ?null:Math.max(value,r.lo??r.min);
+  function setValue(side,raw) {
+    const rounded =
+      range.min +
+      Math.round(
+        (raw-range.min)/range.step
+      )*range.step;
+
+    const value = clamp(
+      rounded,
+      range.min,
+      range.max
+    );
+
+    if (side === "lo") {
+      range.lo = value <= range.min
+        ? null
+        : Math.min(value,range.hi ?? range.max);
+    } else {
+      range.hi = value >= range.max
+        ? null
+        : Math.max(value,range.lo ?? range.min);
     }
+
     draw();
   }
 
-  function fromX(x){
-    const rect=track.getBoundingClientRect();
-    const ratio=clamp(
-      (x-rect.left-12)/Math.max(1,rect.width-24),0,1
+  function fromX(x) {
+    const rect = track.getBoundingClientRect();
+
+    const ratio = clamp(
+      (x-rect.left-12) /
+      Math.max(1,rect.width-24),
+      0,1
     );
-    return r.min+ratio*(r.max-r.min);
+
+    return range.min +
+      ratio*(range.max-range.min);
   }
 
-  thumbs.forEach(thumb=>{
-    thumb.addEventListener("pointerdown",event=>{
+  thumbs.forEach(thumb => {
+    thumb.addEventListener("pointerdown",event => {
       event.preventDefault();
       event.stopPropagation();
+
       thumb.setPointerCapture(event.pointerId);
 
-      const move=e=>setValue(
-        thumb.dataset.side,fromX(e.clientX)
-      );
-      const stop=()=>{
+      const move = e => {
+        setValue(
+          thumb.dataset.side,
+          fromX(e.clientX)
+        );
+      };
+
+      const stop = () => {
         thumb.removeEventListener("pointermove",move);
         thumb.removeEventListener("pointerup",stop);
         thumb.removeEventListener("pointercancel",stop);
       };
+
       thumb.addEventListener("pointermove",move);
       thumb.addEventListener("pointerup",stop);
       thumb.addEventListener("pointercancel",stop);
     });
 
-    thumb.addEventListener("keydown",event=>{
-      if(!["ArrowLeft","ArrowRight"].includes(event.key))return;
+    thumb.addEventListener("keydown",event => {
+      if (
+        event.key !== "ArrowLeft" &&
+        event.key !== "ArrowRight"
+      ) return;
+
       event.preventDefault();
-      const current=r[thumb.dataset.side]??
-        (thumb.dataset.side==="lo"?r.min:r.max);
+
+      const current =
+        range[thumb.dataset.side] ??
+        (thumb.dataset.side === "lo"
+          ? range.min
+          : range.max);
+
       setValue(
         thumb.dataset.side,
-        current+(event.key==="ArrowRight"?r.step:-r.step)
+        current +
+        (event.key === "ArrowRight"
+          ? range.step
+          : -range.step)
       );
     });
   });
 
-  track.addEventListener("pointerdown",event=>{
-    if(event.target.classList.contains("thumb"))return;
-    const x=fromX(event.clientX);
-    const side=
-      Math.abs(x-(r.lo??r.min))<=Math.abs(x-(r.hi??r.max))
-      ?"lo":"hi";
-    setValue(side,x);
+  track.addEventListener("pointerdown",event => {
+    if (event.target.classList.contains("thumb")) {
+      return;
+    }
+
+    const value = fromX(event.clientX);
+    const lower = range.lo ?? range.min;
+    const upper = range.hi ?? range.max;
+
+    const side =
+      Math.abs(value-lower) <= Math.abs(value-upper)
+        ? "lo"
+        : "hi";
+
+    setValue(side,value);
   });
 
   draw();
 });
 
-/*
-=================================================
- 確率・複合条件
-=================================================
-*/
+/* ===========================================
+   計算基礎
+=========================================== */
 
-function normalCdf(x){
-  const z=Math.abs(x)/Math.sqrt(2);
-  const t=1/(1+.3275911*z);
-  const erf=1-
+function normalCdf(x) {
+  const z = Math.abs(x)/Math.sqrt(2);
+  const t = 1/(1+.3275911*z);
+
+  const erf = 1-
     (((((1.061405429*t-1.453152027)*t+
       1.421413741)*t-.284496736)*t+
       .254829592)*t)*Math.exp(-z*z);
+
   return .5*(1+Math.sign(x)*erf);
 }
 
-function selectedRange(id){
-  const r=RANGES.find(x=>x.id===id);
-  return [r.lo??r.min,r.hi??r.max];
+function rangeObject(id) {
+  return RANGES.find(r => r.id === id);
 }
 
-function noRange(id){
-  const r=RANGES.find(x=>x.id===id);
-  return r.lo===null&&r.hi===null;
+function selectedRange(id) {
+  const r = rangeObject(id);
+  return [r.lo ?? r.min,r.hi ?? r.max];
 }
 
-function selectedRate(key,labels,rates){
-  if(chosen[key].includes("指定なし"))return 1;
-  return sum(chosen[key].map(value=>{
-    const i=labels.indexOf(value);
-    return i<0?0:rates[i];
+function noRange(id) {
+  const r = rangeObject(id);
+  return r.lo === null && r.hi === null;
+}
+
+function selectedRate(key,labels,rates) {
+  if (chosen[key].includes("指定なし")) {
+    return 1;
+  }
+
+  return sum(chosen[key].map(value => {
+    const index = labels.indexOf(value);
+    return index < 0 ? 0 : rates[index];
   }));
 }
 
-function regionalRate(){
-  if(selectedPrefs.size===0||selectedPrefs.size===47)return 1;
-  let selected=0;
-  PREFS.forEach((name,index)=>{
-    if(selectedPrefs.has(name))selected+=PREF_WEIGHTS[index];
+function regionalRate() {
+  if (
+    selectedPrefs.size === 0 ||
+    selectedPrefs.size === PREFS.length
+  ) return 1;
+
+  let selected = 0;
+
+  PREFS.forEach((name,index) => {
+    if (selectedPrefs.has(name)) {
+      selected += PREF_WEIGHTS[index];
+    }
   });
+
   return selected/sum(PREF_WEIGHTS);
 }
 
-function nationalityRate(){
-  if(chosen.nat.includes("指定なし"))return 1;
+function nationalityRate() {
+  if (chosen.nat.includes("指定なし")) {
+    return 1;
+  }
+
   return chosen.nat.includes("外国籍")
-    ?MODEL.foreign:1-MODEL.foreign;
+    ? MODEL.foreign
+    : 1-MODEL.foreign;
 }
 
-function maritalChoices(){
+function maritalChoices() {
   return chosen.mar.includes("指定なし")
-    ?["未婚","離婚歴あり","死別歴あり"]
-    :chosen.mar;
+    ? ["未婚","離婚歴あり","死別歴あり"]
+    : chosen.mar;
 }
 
-function maritalPopulation(base,index,marital){
-  if(marital==="未婚")return base;
-  if(marital==="離婚歴あり")return base*MODEL.divorced[index];
-  if(marital==="死別歴あり")return base*MODEL.widowed[index];
+function maritalPopulation(base,index,marital) {
+  if (marital === "未婚") return base;
+
+  if (marital === "離婚歴あり") {
+    return base*MODEL.divorced[index];
+  }
+
+  if (marital === "死別歴あり") {
+    return base*MODEL.widowed[index];
+  }
+
   return 0;
 }
 
-function heightRate(sex,age){
-  if(noRange("height"))return 1;
-  const [lo,hi]=selectedRange("height");
-  const r=RANGES.find(x=>x.id==="height");
-  const cfg=MODEL.height[sex];
-  const mean=cfg.mean-Math.max(0,age-50)*.09;
-  const lower=normalCdf((lo-.5-mean)/cfg.sd);
-  const upper=normalCdf((hi+.5-mean)/cfg.sd);
-  if(r.lo===null)return clamp(upper,0,1);
-  if(r.hi===null)return clamp(1-lower,0,1);
+function heightRate(sex,age) {
+  if (noRange("height")) return 1;
+
+  const [lo,hi] = selectedRange("height");
+  const r = rangeObject("height");
+  const cfg = MODEL.height[sex];
+
+  const mean =
+    cfg.mean-Math.max(0,age-50)*.09;
+
+  const lower =
+    normalCdf((lo-.5-mean)/cfg.sd);
+
+  const upper =
+    normalCdf((hi+.5-mean)/cfg.sd);
+
+  if (r.lo === null) {
+    return clamp(upper,0,1);
+  }
+
+  if (r.hi === null) {
+    return clamp(1-lower,0,1);
+  }
+
   return clamp(upper-lower,0,1);
 }
 
-function incomeRate(sex,age,jobIndex){
-  if(noRange("income"))return 1;
-  const [lo,hi]=selectedRange("income");
-  const r=RANGES.find(x=>x.id==="income");
-  const ageFactor=
-    age<25?.65:age<30?.84:age<40?1:
-    age<50?1.10:age<60?1.04:age<65?.77:.45;
-  const jobFactor=[1.18,1.12,.78,.48,1.05,.13][jobIndex];
-  const median=Math.max(
-    10,MODEL.income[sex]*ageFactor*jobFactor
+function incomeRate(sex,age,jobIndex) {
+  if (noRange("income")) return 1;
+
+  const [lo,hi] = selectedRange("income");
+  const r = rangeObject("income");
+
+  const ageFactor =
+    age<25 ? .65 :
+    age<30 ? .84 :
+    age<40 ? 1 :
+    age<50 ? 1.10 :
+    age<60 ? 1.04 :
+    age<65 ? .77 :
+    .45;
+
+  const jobFactor =
+    [1.18,1.12,.78,.48,1.05,.13][jobIndex];
+
+  const median = Math.max(
+    10,
+    MODEL.income[sex]*ageFactor*jobFactor
   );
-  const cdf=x=>x<=0?0:normalCdf(
-    Math.log(x/median)/MODEL.income.spread
-  );
+
+  const cdf = x => x<=0
+    ? 0
+    : normalCdf(
+        Math.log(x/median)/MODEL.income.spread
+      );
+
   return clamp(
-    (r.hi===null?1:cdf(hi+10))-
-    (r.lo===null?0:cdf(lo)),
+    (r.hi === null ? 1 : cdf(hi+10)) -
+    (r.lo === null ? 0 : cdf(lo)),
     0,1
   );
 }
 
-function childRate(marital,age){
-  if(chosen.child.includes("指定なし"))return 1;
-  const ageFactor=clamp((age-19)/21,.08,1);
-  const hasChild=clamp(
-    MODEL.child[marital]*ageFactor,0,1
-  );
+function childRate(marital,age) {
+  if (chosen.child.includes("指定なし")) {
+    return 1;
+  }
+
+  const ageFactor =
+    clamp((age-19)/21,.08,1);
+
+  const hasChild =
+    clamp(MODEL.child[marital]*ageFactor,0,1);
+
   return chosen.child.includes("あり")
-    ?hasChild:1-hasChild;
+    ? hasChild
+    : 1-hasChild;
 }
 
-function populationForCohort(age,marital,sex){
-  const index=AGE_BASE.findIndex(
-    band=>age>=band.from&&age<=band.to
+function populationForCohort(age,marital,sex) {
+  const index = AGE_BASE.findIndex(
+    band => age>=band.from && age<=band.to
   );
-  if(index<0)return 0;
-  const band=AGE_BASE[index];
-  const perYear=band.count/(band.to-band.from+1);
-  const maritalBase=maritalPopulation(perYear,index,marital);
-  const male=MODEL.maleShare[index];
-  return maritalBase*(sex==="male"?male:1-male);
+
+  if (index < 0) return 0;
+
+  const band = AGE_BASE[index];
+
+  const perYear =
+    band.count/(band.to-band.from+1);
+
+  const maritalBase =
+    maritalPopulation(perYear,index,marital);
+
+  const male = MODEL.maleShare[index];
+
+  return maritalBase *
+    (sex === "male" ? male : 1-male);
 }
 
-function conditionRate(age,marital,sex){
-  const sexLabel=sex==="male"?"男性":"女性";
+function conditionRate(age,marital,sex) {
+  const sexLabel =
+    sex === "male" ? "男性" : "女性";
 
-  if(
-    !chosen.sex.includes("指定なし")&&
+  if (
+    !chosen.sex.includes("指定なし") &&
     !chosen.sex.includes(sexLabel)
-  )return 0;
+  ) return 0;
 
-  const education=selectedRate(
-    "edu",SCHEMA.edu.slice(0,-1),MODEL.edu[sex]
+  const education = selectedRate(
+    "edu",
+    SCHEMA.edu.slice(0,-1),
+    MODEL.edu[sex]
   );
-  const smoking=selectedRate(
-    "smoke",SCHEMA.smoke.slice(0,-1),
+
+  const smoking = selectedRate(
+    "smoke",
+    SCHEMA.smoke.slice(0,-1),
     [1-MODEL.smoke[sex],MODEL.smoke[sex]]
   );
-  const drinking=selectedRate(
-    "drink",SCHEMA.drink.slice(0,-1),MODEL.drink[sex]
+
+  const drinking = selectedRate(
+    "drink",
+    SCHEMA.drink.slice(0,-1),
+    MODEL.drink[sex]
   );
 
-  const jobLabels=SCHEMA.job.slice(0,-1);
-  let employmentIncome=0;
+  const jobLabels = SCHEMA.job.slice(0,-1);
+  let employmentIncome = 0;
 
-  for(let j=0;j<jobLabels.length;j++){
-    const selected=
-      chosen.job.includes("指定なし")||
+  for (let j=0;j<jobLabels.length;j++) {
+    const included =
+      chosen.job.includes("指定なし") ||
       chosen.job.includes(jobLabels[j]);
-    if(!selected)continue;
 
-    employmentIncome+=
+    if (!included) continue;
+
+    employmentIncome +=
       MODEL.job[sex][j]*incomeRate(sex,age,j);
   }
 
   return (
-    nationalityRate()*
-    regionalRate()*
-    heightRate(sex,age)*
-    education*
-    smoking*
-    drinking*
-    childRate(marital,age)*
+    nationalityRate() *
+    regionalRate() *
+    heightRate(sex,age) *
+    education *
+    smoking *
+    drinking *
+    childRate(marital,age) *
     employmentIncome
   );
 }
 
-/*
-=================================================
- 交際・結婚・子ども希望
-=================================================
-*/
+/* ===========================================
+   交際・婚活・子ども
+=========================================== */
 
-function noPartnerRate(age,marital,sex){
-  if(marital!=="未婚"){
-    return RELATIONSHIP_MODEL.noPartnerPreviouslyMarried;
+function noPartnerRate(age,marital,sex) {
+  if (marital !== "未婚") {
+    return RELATIONSHIP_MODEL
+      .noPartnerPreviouslyMarried;
   }
+
   return age<=34
-    ?RELATIONSHIP_MODEL.noPartnerYoung[sex]
-    :RELATIONSHIP_MODEL.noPartnerOlder[sex];
+    ? RELATIONSHIP_MODEL.noPartnerYoung[sex]
+    : RELATIONSHIP_MODEL.noPartnerOlder[sex];
 }
 
-function marriageWishRate(age,marital,sex){
-  if(marital!=="未婚"){
-    return RELATIONSHIP_MODEL.wantsMarriagePreviouslyMarried;
+function marriageWishRate(age,marital,sex) {
+  if (marital !== "未婚") {
+    return RELATIONSHIP_MODEL
+      .wantsMarriagePreviouslyMarried;
   }
+
   return age<=34
-    ?RELATIONSHIP_MODEL.wantsMarriageYoung[sex]
-    :RELATIONSHIP_MODEL.wantsMarriageOlder[sex];
+    ? RELATIONSHIP_MODEL.wantsMarriageYoung[sex]
+    : RELATIONSHIP_MODEL.wantsMarriageOlder[sex];
 }
 
-function futureChildWishRates(age,marital,sex){
-  if(marital==="未婚"&&age<=34){
+function futureChildWishRates(age,marital,sex) {
+  if (marital === "未婚" && age<=34) {
     return CHILD_WISH_MODEL.young[sex];
   }
-  if(age<=44)return CHILD_WISH_MODEL.mid[sex];
-  if(age<=54)return CHILD_WISH_MODEL.older[sex];
+
+  if (age<=44) return CHILD_WISH_MODEL.mid[sex];
+  if (age<=54) return CHILD_WISH_MODEL.older[sex];
+
   return CHILD_WISH_MODEL.senior[sex];
 }
 
-/*
-=================================================
- ★ NEW：婚活方法別の利用率
+function activityRate(id,age,sex,marital) {
+  const base = ACTIVITY_MODEL[sex][id];
+  let factor = 1;
 
- モデル仮定：
- ・年齢30代に近い層を基準に設定
- ・若年層と高年齢層で利用率を調整
- ・相談所は30〜50代に比較的高いと仮定
- ・活動方法は複数選択可能とする
-=================================================
-*/
-
-function activityRate(id,age,sex,marital){
-
-  const base=ACTIVITY_MODEL[sex][id];
-
-  // 年齢別の仮定上の調整倍率
-  let factor=1;
-
-  if(id==="app"){
-    factor=
-      age<20?.35:
-      age<25?.85:
-      age<35?1.4:
-      age<45?1:
-      age<55?.6:
-      age<65?.3:.12;
-
-  }else if(id==="agency"){
-    factor=
-      age<20?.10:
-      age<25?.35:
-      age<35?1:
-      age<45?1.35:
-      age<55?1.2:
-      age<65?.7:.35;
-
-  }else if(id==="event"){
-    factor=
-      age<20?.25:
-      age<25?.75:
-      age<45?1.2:
-      age<55?.9:
-      age<65?.5:.25;
-
-  }else if(id==="friends"){
-    factor=
-      age<25?1.15:
-      age<40?1:
-      age<55?.85:
-      age<65?.65:.45;
-
-  }else{
-    factor=
-      age<25?1:
-      age<45?1.1:
-      age<60?.9:.6;
+  if (id === "app") {
+    factor =
+      age<20 ? .35 :
+      age<25 ? .85 :
+      age<35 ? 1.4 :
+      age<45 ? 1 :
+      age<55 ? .6 :
+      age<65 ? .3 : .12;
+  } else if (id === "agency") {
+    factor =
+      age<20 ? .10 :
+      age<25 ? .35 :
+      age<35 ? 1 :
+      age<45 ? 1.35 :
+      age<55 ? 1.2 :
+      age<65 ? .7 : .35;
+  } else if (id === "event") {
+    factor =
+      age<20 ? .25 :
+      age<25 ? .75 :
+      age<45 ? 1.2 :
+      age<55 ? .9 :
+      age<65 ? .5 : .25;
+  } else if (id === "friends") {
+    factor =
+      age<25 ? 1.15 :
+      age<40 ? 1 :
+      age<55 ? .85 :
+      age<65 ? .65 : .45;
+  } else {
+    factor =
+      age<25 ? 1 :
+      age<45 ? 1.1 :
+      age<60 ? .9 : .6;
   }
 
-  // 離別・死別者については別の仮定で調整
-  if(marital!=="未婚"){
-    if(id==="app")factor*=.8;
-    if(id==="agency")factor*=1.2;
+  if (marital !== "未婚") {
+    if (id === "app") factor *= .8;
+    if (id === "agency") factor *= 1.2;
   }
 
   return clamp(base*factor,0,1);
 }
 
-/*
-=================================================
- ★ 一人が「何もしていない」確率
+function noActivityRate(age,sex,marital) {
+  let none = 1;
 
- 重複利用を認めるモデル。
-
- 各活動の非利用確率を掛け合わせ、
- どの活動も利用していない確率を求める。
-
- ※ 各手段の独立性は未検証の仮定です。
-=================================================
-*/
-
-function noActivityRate(age,sex,marital){
-
-  let none=1;
-
-  ACTIVITY_TYPES.forEach(type=>{
-    const rate=activityRate(
-      type.id,age,sex,marital
-    );
-    none*=(1-rate);
+  ACTIVITY_TYPES.forEach(type => {
+    none *=
+      1-activityRate(type.id,age,sex,marital);
   });
 
   return clamp(none,0,1);
 }
 
-/*
-=================================================
- ★ 現在・恋愛・婚活・子ども・1年後
+function assumedMarriageRate(age,marital) {
+  if (marital !== "未婚") {
+    if (age<40) return .025;
+    if (age<55) return .015;
+    return .005;
+  }
 
- 同じ人口コホートを共通の分母に使う。
-=================================================
-*/
+  if (age<20) return .002;
+  if (age<25) return .025;
+  if (age<35) return .075;
+  if (age<40) return .045;
+  if (age<45) return .025;
+  if (age<50) return .015;
+  if (age<60) return .008;
+  return .003;
+}
 
-function calculateAll(){
+/* ===========================================
+   現在・婚活・子ども・1年後を計算
 
-  const [minAge,maxAge]=selectedRange("age");
-  const marriages=maritalChoices();
+   lighter=true:
+   人数のみ計算し、条件比較を高速化。
+=========================================== */
 
-  const result={
+function calculateAll(lighter=false) {
+  const [minAge,maxAge] = selectedRange("age");
+  const marriages = maritalChoices();
+
+  const result = {
     current:0,
     noPartner:0,
     wantsMarriage:0,
@@ -1716,422 +2719,1100 @@ function calculateAll(){
     }
   };
 
-  for(let age=18;age<=79;age++){
-
-    for(const marital of marriages){
-
-      for(const sex of ["male","female"]){
-
-        const population=
+  for (let age=18;age<=79;age++) {
+    for (const marital of marriages) {
+      for (const sex of ["male","female"]) {
+        const population =
           populationForCohort(age,marital,sex);
 
-        if(population<=0)continue;
+        if (population<=0) continue;
 
-        // 現在の条件
-        if(age>=minAge&&age<=maxAge){
-
-          const matched=
+        if (age>=minAge && age<=maxAge) {
+          const matched =
             population*conditionRate(age,marital,sex);
 
-          result.current+=matched;
+          result.current += matched;
 
-          const noPartner=
-            matched*noPartnerRate(age,marital,sex);
+          if (!lighter) {
+            const available =
+              matched*noPartnerRate(age,marital,sex);
 
-          result.noPartner+=noPartner;
+            result.noPartner += available;
 
-          const willing=
-            noPartner*marriageWishRate(age,marital,sex);
-
-          result.wantsMarriage+=willing;
-
-          // 子ども希望（婚活方法とは独立の集計軸）
-          const childRates=
-            futureChildWishRates(age,marital,sex);
-
-          result.childYes+=willing*childRates[0];
-          result.childNo+=willing*childRates[1];
-          result.childUnknown+=willing*childRates[2];
-
-          // ★ 婚活方法（重複あり）
-          ACTIVITY_TYPES.forEach(type=>{
-            result.activities[type.id]+=
-              willing*activityRate(
-                type.id,age,sex,marital
+            const willing =
+              available*marriageWishRate(
+                age,marital,sex
               );
-          });
 
-          // ★ 全手段を利用していない人数
-          result.activities.none+=
-            willing*noActivityRate(
-              age,sex,marital
-            );
+            result.wantsMarriage += willing;
+
+            const childRates =
+              futureChildWishRates(age,marital,sex);
+
+            result.childYes += willing*childRates[0];
+            result.childNo += willing*childRates[1];
+            result.childUnknown += willing*childRates[2];
+
+            ACTIVITY_TYPES.forEach(type => {
+              result.activities[type.id] +=
+                willing*activityRate(
+                  type.id,age,sex,marital
+                );
+            });
+
+            result.activities.none +=
+              willing*noActivityRate(
+                age,sex,marital
+              );
+          }
         }
 
-        // 1年後（現在の対象人口の移動）
-        const nextAge=age+1;
+        if (!lighter) {
+          const nextAge = age+1;
 
-        if(nextAge>=minAge&&nextAge<=maxAge){
+          if (
+            nextAge>=minAge &&
+            nextAge<=maxAge
+          ) {
+            const remaining =
+              population*
+              (1-assumedMarriageRate(age,marital));
 
-          const remaining=
-            population*
-            (1-assumedMarriageRate(age,marital));
-
-          result.next+=
-            remaining*
-            conditionRate(nextAge,marital,sex);
+            result.next +=
+              remaining*conditionRate(
+                nextAge,marital,sex
+              );
+          }
         }
       }
     }
   }
 
-  result.change=result.next-result.current;
+  result.change = result.next-result.current;
   return result;
 }
 
-/*
-=================================================
- 表示の共通関数
-=================================================
-*/
+function formatEstimate(value) {
+  if (!Number.isFinite(value)) return "算出困難";
+  if (value<.5) return "1人未満";
 
-function formatEstimate(value){
-  if(value<.5)return "1人未満";
-  if(value<10)return "約"+Math.round(value)+"人";
+  if (value<10) {
+    return "約"+Math.round(value)+"人";
+  }
 
-  const magnitude=Math.floor(Math.log10(value));
-  const step=Math.pow(
-    10,Math.max(0,magnitude-1)
+  const magnitude =
+    Math.floor(Math.log10(value));
+
+  const step = Math.pow(
+    10,
+    Math.max(0,magnitude-1)
   );
 
   return "約"+
     format(Math.round(value/step)*step)+"人";
 }
 
-/*
-=================================================
- ★ NEW：婚活方法の一覧表示
+/* ===========================================
+   NEW：条件を1つ緩めた再計算
 
- 各項目のパーセントは同じ分母を使う。
- 正規化しない。
-=================================================
-*/
+   現在の状態を保存して一時的に変更。
+   必ず元の条件に戻す。
+=========================================== */
 
-function renderActivities(data){
+function runTemporaryChange(change) {
+  const oldChosen = {};
 
-  const container=$("activityList");
+  Object.keys(chosen).forEach(key => {
+    oldChosen[key] = [...chosen[key]];
+  });
+
+  const oldRanges = RANGES.map(r => ({
+    id:r.id,
+    lo:r.lo,
+    hi:r.hi
+  }));
+
+  const oldPrefs = [...selectedPrefs];
+
+  try {
+    change();
+    return calculateAll(true).current;
+  } finally {
+    Object.keys(chosen).forEach(key => {
+      chosen[key] = oldChosen[key];
+    });
+
+    oldRanges.forEach(saved => {
+      const r = rangeObject(saved.id);
+      r.lo = saved.lo;
+      r.hi = saved.hi;
+    });
+
+    selectedPrefs.clear();
+
+    oldPrefs.forEach(name => {
+      selectedPrefs.add(name);
+    });
+  }
+}
+
+function makeRelaxOptions(current) {
+  const options = [];
+
+  function addOption(id,label,change) {
+    const next = runTemporaryChange(change);
+    const increase = Math.max(0,next-current);
+
+    // 増加なしは候補から除外
+    if (increase<=0.001) return;
+
+    options.push({
+      id,
+      label,
+      next,
+      increase
+    });
+  }
+
+  // 年齢：下限を2歳、上限を2歳広げる
+  const age = rangeObject("age");
+
+  if (!noRange("age")) {
+    const oldLo = age.lo;
+    const oldHi = age.hi;
+
+    const newLo =
+      oldLo===null
+        ? null
+        : Math.max(age.min,oldLo-2);
+
+    const newHi =
+      oldHi===null
+        ? null
+        : Math.min(age.max,oldHi+2);
+
+    addOption(
+      "age",
+      "年齢の範囲を前後2歳広げる",
+      () => {
+        age.lo =
+          newLo===age.min ? null : newLo;
+        age.hi =
+          newHi===age.max ? null : newHi;
+      }
+    );
+  }
+
+  // 身長：下限-5cm／上限+5cm
+  const height = rangeObject("height");
+
+  if (!noRange("height")) {
+    const oldLo = height.lo;
+    const oldHi = height.hi;
+
+    addOption(
+      "height",
+      oldLo!==null
+        ? "身長の下限を5cm下げる"
+        : "身長の上限を5cm上げる",
+      () => {
+        if (oldLo!==null) {
+          const value = Math.max(
+            height.min,oldLo-5
+          );
+          height.lo =
+            value===height.min ? null : value;
+        } else if (oldHi!==null) {
+          const value = Math.min(
+            height.max,oldHi+5
+          );
+          height.hi =
+            value===height.max ? null : value;
+        }
+      }
+    );
+  }
+
+  // 年収：下限-100万円／上限+100万円
+  const income = rangeObject("income");
+
+  if (!noRange("income")) {
+    const oldLo = income.lo;
+    const oldHi = income.hi;
+
+    addOption(
+      "income",
+      oldLo!==null
+        ? "年収の下限を100万円下げる"
+        : "年収の上限を100万円上げる",
+      () => {
+        if (oldLo!==null) {
+          const value = Math.max(
+            income.min,oldLo-100
+          );
+          income.lo =
+            value===income.min ? null : value;
+        } else if (oldHi!==null) {
+          const value = Math.min(
+            income.max,oldHi+100
+          );
+          income.hi =
+            value===income.max ? null : value;
+        }
+      }
+    );
+  }
+
+  const labels = {
+    nat:"国籍の指定を外す",
+    mar:"婚姻歴の指定を外す",
+    child:"子どもの有無の指定を外す",
+    edu:"学歴の指定を外す",
+    job:"雇用形態の指定を外す",
+    smoke:"たばこの条件を外す",
+    drink:"飲酒の条件を外す"
+  };
+
+  Object.keys(labels).forEach(key => {
+    if (chosen[key].includes("指定なし")) {
+      return;
+    }
+
+    addOption(
+      key,
+      labels[key],
+      () => {
+        chosen[key] = ["指定なし"];
+      }
+    );
+  });
+
+  if (
+    selectedPrefs.size>0 &&
+    selectedPrefs.size<PREFS.length
+  ) {
+    addOption(
+      "prefs",
+      "居住地の指定を外して全国に広げる",
+      () => {
+        selectedPrefs.clear();
+      }
+    );
+  }
+
+  options.sort((a,b) => b.increase-a.increase);
+
+  return options;
+}
+
+function renderRelax(current,options) {
+  $("relaxBase").textContent =
+    formatEstimate(current);
+
+  const container = $("relaxList");
   container.replaceChildren();
 
-  const base=data.wantsMarriage;
+  if (options.length===0) {
+    const box = document.createElement("div");
+    box.className = "empty-info";
+    box.textContent =
+      "比較できる条件がありません。" +
+      "現在の指定範囲では、今回の緩和方法によって" +
+      "増加する人数を計算できませんでした。";
 
-  $("activityBase").textContent=
+    container.appendChild(box);
+    return;
+  }
+
+  options.slice(0,3).forEach((option,index) => {
+    const item = document.createElement("div");
+    item.className = "relax-item";
+
+    const head = document.createElement("div");
+    head.className = "relax-head";
+
+    const label = document.createElement("div");
+    label.className = "relax-label";
+    label.textContent =
+      (index+1)+". "+option.label;
+
+    const number = document.createElement("div");
+    number.className = "relax-number";
+
+    const total = document.createElement("strong");
+    total.textContent =
+      formatEstimate(option.next);
+
+    const plus = document.createElement("div");
+    plus.className = "relax-plus";
+    plus.textContent =
+      "+"+format(Math.round(option.increase))+"人";
+
+    number.append(total,plus);
+    head.append(label,number);
+
+    const description = document.createElement("div");
+    description.className = "relax-description";
+    description.textContent =
+      "ほかの条件は変更せずに再計算";
+
+    item.append(head,description);
+    container.appendChild(item);
+  });
+}
+
+/* ===========================================
+   NEW：16タイプの診断データ
+=========================================== */
+
+const DIAGNOSIS_TYPES = [
+  {
+    name:"伝説のユニコーンハンター",
+    catch:"理想の相手、もはや絶滅危惧種。",
+    kind:"でも、誰でもいいと思えないのは本気だから。"
+  },
+  {
+    name:"恋のミシュラン審査員",
+    catch:"星はつけるけど、合格は出さない。",
+    kind:"その審美眼、幸せを見つけるためにも使ってね。"
+  },
+  {
+    name:"運命の一点狙いスナイパー",
+    catch:"狙いが正確すぎて、標的がいない。",
+    kind:"ほんの少し視野を広げたら、景色が変わるかも。"
+  },
+  {
+    name:"妥協知らずのロイヤルプリンセス",
+    catch:"王子様の募集要項、ちょっと長め。",
+    kind:"大切にされたい気持ちは、譲らなくていい。"
+  },
+  {
+    name:"スペック愛好家",
+    catch:"恋愛なのに、採用面接が始まってる。",
+    kind:"数字に表れない魅力も、たまには見てみて。"
+  },
+  {
+    name:"恋の条件パズル職人",
+    catch:"条件は完璧。完成する相手は未発見。",
+    kind:"ひとつピースを外すと、意外な絵になるかも。"
+  },
+  {
+    name:"年収に恋するリアリスト",
+    catch:"愛だけじゃ食べられない。ごもっとも。",
+    kind:"安心できる暮らしも、立派な愛の条件。"
+  },
+  {
+    name:"高身長ドリームコレクター",
+    catch:"恋の入り口、身長制限あり。",
+    kind:"見上げる恋も素敵。でも心の距離も忘れずに。"
+  },
+  {
+    name:"恋のコスパマスター",
+    catch:"夢も見るけど、現実もちゃんと見る。",
+    kind:"そのバランス感覚、かなり頼もしい。"
+  },
+  {
+    name:"幸せの優良物件ハンター",
+    catch:"条件検索、もはや不動産サイト。",
+    kind:"でも、長く安心できる相手を探すのは大切。"
+  },
+  {
+    name:"慎重派ラブストラテジスト",
+    catch:"恋の前にリスク評価、完了。",
+    kind:"計画どおりにいかない恋も、案外いいもの。"
+  },
+  {
+    name:"堅実なハッピーエンド設計士",
+    catch:"ときめきより先に、生活設計。",
+    kind:"日常を大切にできる恋は、きっと強い。"
+  },
+  {
+    name:"恋のフリーダム冒険家",
+    catch:"条件ゆるめ。人生はだいぶ自由。",
+    kind:"予想外の出会いを楽しめるのも才能。"
+  },
+  {
+    name:"全人類ウェルカムヒーロー",
+    catch:"恋愛のストライクゾーン、球場サイズ。",
+    kind:"その懐の深さ、誰かの安心になるはず。"
+  },
+  {
+    name:"直感最優先のフィーリング信者",
+    catch:"スペック？会ってから考えます。",
+    kind:"数字では測れない相性を信じるのも素敵。"
+  },
+  {
+    name:"運命に丸投げロマンチスト",
+    catch:"条件は少なめ。あとは宇宙に発注。",
+    kind:"偶然を楽しみながら、自分でも一歩踏み出して。"
+  }
+];
+
+/* ===========================================
+   診断用：条件の指定状況
+=========================================== */
+
+function conditionCount() {
+  let count = 0;
+
+  Object.keys(chosen).forEach(key => {
+    if (!chosen[key].includes("指定なし")) {
+      count++;
+    }
+  });
+
+  RANGES.forEach(r => {
+    if (!noRange(r.id)) {
+      count++;
+    }
+  });
+
+  if (
+    selectedPrefs.size>0 &&
+    selectedPrefs.size<PREFS.length
+  ) {
+    count++;
+  }
+
+  return count;
+}
+
+function ageWidth() {
+  const [lo,hi] = selectedRange("age");
+  return hi-lo+1;
+}
+
+/*
+  希少性の基準人口：
+  年齢・性別を同じにした、
+  婚姻歴等を制限しない暫定モデル人口。
+
+  統計的な順位・パーセンタイルではない。
+*/
+
+function diagnosisBaseline() {
+  const [minAge,maxAge] = selectedRange("age");
+
+  let baseline = 0;
+
+  for (let age=minAge;age<=maxAge;age++) {
+    for (const marital of [
+      "未婚","離婚歴あり","死別歴あり"
+    ]) {
+      for (const sex of ["male","female"]) {
+        const label =
+          sex==="male" ? "男性" : "女性";
+
+        if (
+          !chosen.sex.includes("指定なし") &&
+          !chosen.sex.includes(label)
+        ) continue;
+
+        baseline +=
+          populationForCohort(age,marital,sex);
+      }
+    }
+  }
+
+  return baseline;
+}
+
+/* ===========================================
+   16タイプを決定
+
+   同じ条件 → 同じ結果
+
+   判定の優先順位
+   1 希少性
+   2 最も影響する条件
+   3 指定数・年齢幅
+   4 条件の特徴
+=========================================== */
+
+function determineDiagnosis(current,options) {
+  const count = conditionCount();
+
+  const baseline = diagnosisBaseline();
+
+  const rarity =
+    baseline>0 ? current/baseline : 0;
+
+  const top = options[0] ?? null;
+
+  const effect =
+    top && current>0
+      ? top.increase/current
+      : 0;
+
+  const topId = top ? top.id : "";
+
+  const income = rangeObject("income");
+  const height = rangeObject("height");
+
+  const incomeSpecified = !noRange("income");
+  const heightSpecified = !noRange("height");
+  const jobSpecified =
+    !chosen.job.includes("指定なし");
+  const eduSpecified =
+    !chosen.edu.includes("指定なし");
+  const marSpecified =
+    !chosen.mar.includes("指定なし");
+
+  let index;
+
+  if (rarity<.00001 && count>=5) {
+    index=0;
+  } else if (rarity<.0001 && count>=7) {
+    index=1;
+  } else if (rarity<.0001 && ageWidth()<=5) {
+    index=2;
+  } else if (rarity<.001 && count>=6) {
+    index=3;
+  } else if (
+    incomeSpecified &&
+    heightSpecified &&
+    eduSpecified &&
+    jobSpecified
+  ) {
+    index=4;
+  } else if (
+    count>=6 &&
+    effect>=1.5
+  ) {
+    index=5;
+  } else if (
+    incomeSpecified &&
+    income.lo!==null &&
+    (topId==="income" || income.lo>=600)
+  ) {
+    index=6;
+  } else if (
+    heightSpecified &&
+    height.lo!==null &&
+    (topId==="height" || height.lo>=175)
+  ) {
+    index=7;
+  } else if (
+    incomeSpecified &&
+    !heightSpecified &&
+    count<=4
+  ) {
+    index=8;
+  } else if (
+    jobSpecified &&
+    eduSpecified &&
+    count>=4
+  ) {
+    index=9;
+  } else if (
+    count>=5 &&
+    rarity>=.001
+  ) {
+    index=10;
+  } else if (
+    marSpecified &&
+    jobSpecified &&
+    count>=3
+  ) {
+    index=11;
+  } else if (
+    count===0
+  ) {
+    index=13;
+  } else if (
+    count===1
+  ) {
+    index=15;
+  } else if (
+    count===2 &&
+    !incomeSpecified &&
+    !heightSpecified
+  ) {
+    index=14;
+  } else if (
+    count<=3
+  ) {
+    index=12;
+  } else {
+    index=8;
+  }
+
+  return {
+    index,
+    type:DIAGNOSIS_TYPES[index],
+    rarity,
+    count,
+    top
+  };
+}
+
+function renderDiagnosis(data) {
+  const index = data.index;
+  const type = data.type;
+
+  $("diagnosisId").textContent =
+    "TYPE " +
+    String(index+1).padStart(2,"0") +
+    " / 16";
+
+  $("diagnosisName").textContent =
+    type.name;
+
+  $("diagnosisCatch").textContent =
+    "「"+type.catch+"」";
+
+  $("diagnosisKind").textContent =
+    type.kind;
+
+  const reason = [];
+
+  reason.push(
+    "指定した条件：" + data.count + "項目。"
+  );
+
+  if (data.top) {
+    reason.push(
+      "人数への影響が大きい条件変更は「" +
+      data.top.label +
+      "」でした。"
+    );
+  }
+
+  reason.push(
+    "人数と条件の特徴をもとにタイプを判定しています。"
+  );
+
+  $("diagnosisReason").textContent =
+    reason.join(" ");
+}
+
+/* ===========================================
+   婚活手段別表示
+=========================================== */
+
+function renderActivities(data) {
+  const container = $("activityList");
+  container.replaceChildren();
+
+  const base = data.wantsMarriage;
+
+  $("activityBase").textContent =
     formatEstimate(base);
 
-  const items=[
+  const items = [
     ...ACTIVITY_TYPES,
-    {id:"none",label:"特に何もしていない"}
+    {
+      id:"none",
+      label:"特に何もしていない"
+    }
   ];
 
-  items.forEach(type=>{
+  items.forEach(type => {
+    const count = data.activities[type.id] || 0;
 
-    const count=data.activities[type.id]||0;
-    const percent=base>0
-      ?100*count/base
-      :0;
+    const percent =
+      base>0 ? 100*count/base : 0;
 
-    const item=document.createElement("div");
-    item.className=
-      "activity-item"+(type.id==="none"?" none":"");
+    const item = document.createElement("div");
+    item.className =
+      "activity-item" +
+      (type.id==="none" ? " none" : "");
 
-    const head=document.createElement("div");
-    head.className="activity-head";
+    const head = document.createElement("div");
+    head.className = "activity-head";
 
-    const name=document.createElement("div");
-    name.className="activity-name";
-    name.textContent=type.label;
+    const name = document.createElement("div");
+    name.className = "activity-name";
+    name.textContent = type.label;
 
-    const number=document.createElement("strong");
-    number.className="activity-count";
-    number.textContent=formatEstimate(count);
+    const number = document.createElement("strong");
+    number.className = "activity-count";
+    number.textContent = formatEstimate(count);
 
     head.append(name,number);
 
-    const ratio=document.createElement("div");
-    ratio.className="activity-percent";
-    ratio.textContent=
-      base<.5?"割合は算出困難":
-      "対象者の "+percent.toFixed(1)+"%";
+    const ratio = document.createElement("div");
+    ratio.className = "activity-percent";
 
-    const track=document.createElement("div");
-    track.className="activity-track";
+    ratio.textContent =
+      base<.5
+        ? "割合は算出困難"
+        : "対象者の "+percent.toFixed(1)+"%";
+
+    const track = document.createElement("div");
+    track.className = "activity-track";
     track.setAttribute("aria-hidden","true");
 
-    const fill=document.createElement("div");
-    fill.className="activity-fill";
-    fill.style.width=clamp(percent,0,100)+"%";
+    const fill = document.createElement("div");
+    fill.className = "activity-fill";
+    fill.style.width =
+      clamp(percent,0,100)+"%";
 
     track.appendChild(fill);
+
     item.append(head,ratio,track);
     container.appendChild(item);
   });
 }
 
-/*
-=================================================
- 子ども希望円グラフ
-=================================================
-*/
+/* ===========================================
+   子ども希望円グラフ
+=========================================== */
 
-function renderChildPie(data){
+function renderChildPie(data) {
+  const total =
+    data.childYes +
+    data.childNo +
+    data.childUnknown;
 
-  const total=
-    data.childYes+data.childNo+data.childUnknown;
-
-  if(total<.5){
+  if (total<.5) {
     $("childPie").style.background="#e6e6eb";
     $("piePercent").textContent="—";
     $("childYes").textContent="—";
     $("childNo").textContent="—";
     $("childUnknown").textContent="—";
     $("childYesCount").textContent="算出困難";
-    $("childChartNote").textContent=
-      "対象となる人数が少ないため、内訳を表示できません。";
+
+    $("childChartNote").textContent =
+      "推定対象人数が少ないため、内訳を算出できません。";
+
     return;
   }
 
-  const yes=100*data.childYes/total;
-  const no=100*data.childNo/total;
-  const unknown=100*data.childUnknown/total;
+  const yes = 100*data.childYes/total;
+  const no = 100*data.childNo/total;
+  const unknown = 100*data.childUnknown/total;
 
-  const a=clamp(yes,0,100);
-  const b=clamp(yes+no,0,100);
+  const a = clamp(yes,0,100);
+  const b = clamp(yes+no,0,100);
 
-  $("childPie").style.background=
+  $("childPie").style.background =
     "conic-gradient("+
     "#7654d6 0% "+a+"%, "+
     "#d7c8f4 "+a+"% "+b+"%, "+
     "#e6e6eb "+b+"% 100%)";
 
-  $("piePercent").textContent=yes.toFixed(1)+"%";
-  $("childYes").textContent=yes.toFixed(1)+"%";
-  $("childNo").textContent=no.toFixed(1)+"%";
-  $("childUnknown").textContent=unknown.toFixed(1)+"%";
-  $("childYesCount").textContent=
+  $("piePercent").textContent =
+    yes.toFixed(1)+"%";
+
+  $("childYes").textContent =
+    yes.toFixed(1)+"%";
+
+  $("childNo").textContent =
+    no.toFixed(1)+"%";
+
+  $("childUnknown").textContent =
+    unknown.toFixed(1)+"%";
+
+  $("childYesCount").textContent =
     formatEstimate(data.childYes);
 
   $("childPie").setAttribute(
     "aria-label",
-    "子どもが欲しい"+yes.toFixed(1)+"%、"+
-    "欲しくない"+no.toFixed(1)+"%、"+
+    "子どもが欲しい"+yes.toFixed(1)+"%、" +
+    "欲しくない"+no.toFixed(1)+"%、" +
     "未定・不明"+unknown.toFixed(1)+"%"
   );
 
-  $("childChartNote").textContent=
-    "※ 出生動向基本調査を参考にしたモデル試算です。"+
-    "35歳以上・離別・死別者には仮定値を使用し、"+
-    "交際相手なし・結婚願望ありの人だけを"+
-    "直接集計したものではありません。";
+  $("childChartNote").textContent =
+    "※ 出生動向基本調査を参考にしたモデル試算です。" +
+    "35歳以上や離別・死別者には仮定値を使用します。" +
+    "交際相手なし・結婚願望ありの人だけを" +
+    "直接集計した割合ではありません。";
 }
 
-/*
-=================================================
- 結果画面
-=================================================
-*/
+/* ===========================================
+   結果画面
+=========================================== */
 
-let latestResult=null;
+let latestResult = null;
+let latestDiagnosis = null;
 
-function renderResults(){
+function renderResults() {
+  const data = calculateAll(false);
 
-  const data=calculateAll();
-  latestResult=data;
+  // 条件を緩めた場合を個別に再計算
+  const relaxOptions =
+    makeRelaxOptions(data.current);
 
-  $("resultNumber").textContent=
+  // 診断
+  const diagnosis =
+    determineDiagnosis(data.current,relaxOptions);
+
+  latestResult = data;
+  latestDiagnosis = diagnosis;
+
+  // 婚姻歴に応じて見出しを切り替える
+  if (
+    chosen.mar.length===1 &&
+    chosen.mar[0]==="未婚"
+  ) {
+    $("resultHeading").textContent =
+      "あなたの条件に当てはまる未婚の人は…";
+  } else {
+    $("resultHeading").textContent =
+      "あなたの条件に当てはまる" +
+      "現在配偶者がいない人は…";
+  }
+
+  $("resultNumber").textContent =
     formatEstimate(data.current);
 
-  $("resultNote").textContent=
-    "暫定人口と検証前のモデル仮定を含む試算です。"+
+  $("resultNote").textContent =
+    "暫定人口と検証前のモデル仮定を含む試算です。" +
     "実際の該当人数とは異なる可能性があります。";
 
-  $("stepAll").textContent=
+  // NEW：診断
+  renderDiagnosis(diagnosis);
+
+  // NEW：条件緩和
+  renderRelax(data.current,relaxOptions);
+
+  // 結婚願望
+  $("stepAll").textContent =
     formatEstimate(data.current);
 
-  $("stepSingle").textContent=
+  $("stepSingle").textContent =
     formatEstimate(data.noPartner);
 
-  $("stepMarriage").textContent=
+  $("stepMarriage").textContent =
     formatEstimate(data.wantsMarriage);
 
-  // ★ 婚活方法
+  // 婚活方法
   renderActivities(data);
 
   // 子ども希望
   renderChildPie(data);
 
   // 1年後
-  $("forecastNow").textContent=
+  $("forecastNow").textContent =
     formatEstimate(data.current);
 
-  $("forecastNext").textContent=
+  $("forecastNext").textContent =
     formatEstimate(data.next);
 
-  const changeEl=$("forecastChange");
+  const changeEl = $("forecastChange");
 
-  changeEl.classList.remove("increase","decrease");
+  changeEl.classList.remove(
+    "increase","decrease"
+  );
 
-  if(data.current<.5){
+  if (data.current<.5) {
     changeEl.textContent="算出困難";
     return;
   }
 
-  const difference=Math.round(data.change);
-  const percent=100*data.change/data.current;
-  const sign=difference>0?"+":"";
+  const difference =
+    Math.round(data.change);
 
-  changeEl.textContent=
-    sign+format(difference)+"人（"+
-    (percent>0?"+":"")+
-    percent.toFixed(1)+"%）";
+  const percent =
+    100*data.change/data.current;
 
-  if(data.change<0){
+  changeEl.textContent =
+    (difference>0 ? "+" : "") +
+    format(difference) +
+    "人（" +
+    (percent>0 ? "+" : "") +
+    percent.toFixed(1) +
+    "%）";
+
+  if (data.change<0) {
     changeEl.classList.add("decrease");
-  }else if(data.change>0){
+  } else if (data.change>0) {
     changeEl.classList.add("increase");
   }
 }
 
-/*
-=================================================
- Xシェア
-=================================================
-*/
+/* ===========================================
+   Xシェア
+=========================================== */
 
-function selectedSummary(){
+function selectedSummary() {
+  const parts = [];
 
-  const parts=[];
-
-  if(!chosen.sex.includes("指定なし")){
+  if (!chosen.sex.includes("指定なし")) {
     parts.push(chosen.sex.join("・"));
   }
 
-  if(!noRange("age")){
-    const [a,b]=selectedRange("age");
+  if (!noRange("age")) {
+    const [a,b] = selectedRange("age");
     parts.push("年齢"+a+"〜"+b+"歳");
   }
 
-  if(!noRange("height")){
-    const r=RANGES.find(x=>x.id==="height");
-    const [a,b]=selectedRange("height");
+  if (!noRange("height")) {
+    const r = rangeObject("height");
+    const [a,b] = selectedRange("height");
+
     parts.push(
       r.lo===null
-        ?"身長"+b+"cm以下"
-        :r.hi===null
-          ?"身長"+a+"cm以上"
-          :"身長"+a+"〜"+b+"cm"
+        ? "身長"+b+"cm以下"
+        : r.hi===null
+          ? "身長"+a+"cm以上"
+          : "身長"+a+"〜"+b+"cm"
     );
   }
 
-  if(!noRange("income")){
-    const r=RANGES.find(x=>x.id==="income");
-    const [a,b]=selectedRange("income");
+  if (!noRange("income")) {
+    const r = rangeObject("income");
+    const [a,b] = selectedRange("income");
+
     parts.push(
       r.lo===null
-        ?"年収"+b+"万円以下"
-        :r.hi===null
-          ?"年収"+a+"万円以上"
-          :"年収"+a+"〜"+b+"万円"
+        ? "年収"+b+"万円以下"
+        : r.hi===null
+          ? "年収"+a+"万円以上"
+          : "年収"+a+"〜"+b+"万円"
     );
   }
 
-  if(!chosen.mar.includes("指定なし")){
+  if (!chosen.mar.includes("指定なし")) {
     parts.push(chosen.mar.join("・"));
   }
 
+  if (
+    selectedPrefs.size>0 &&
+    selectedPrefs.size<PREFS.length
+  ) {
+    parts.push(
+      "居住地"+selectedPrefs.size+"都道府県"
+    );
+  }
+
   return parts.length
-    ?parts.join("／")
-    :"条件指定なし";
+    ? parts.join("／")
+    : "条件指定なし";
 }
 
-function shareText(){
+function shareText() {
+  if (!latestResult || !latestDiagnosis) {
+    return "";
+  }
 
-  if(!latestResult)return "";
+  const type = latestDiagnosis.type;
 
   return (
-    "理想の人、何人いる？\n\n"+
-    "私の理想条件：\n"+
-    selectedSummary()+"\n\n"+
-    "条件に合う人："+formatEstimate(latestResult.current)+"\n"+
-    "交際相手がいない人："+formatEstimate(latestResult.noPartner)+"\n"+
-    "さらに結婚願望がある人："+formatEstimate(latestResult.wantsMarriage)+"\n\n"+
-    "あなたの理想は何人いる？\n"+
-    SITE_URL+"\n\n"+
-    "※暫定統計と仮定による試算です。"
+    "私の理想診断は【" +
+    type.name +
+    "】でした！\n" +
+    "「" + type.catch + "」\n\n" +
+    "理想条件：" +
+    selectedSummary() + "\n" +
+    "当てはまる人：" +
+    formatEstimate(latestResult.current) + "\n" +
+    "交際相手なし・結婚願望あり：" +
+    formatEstimate(latestResult.wantsMarriage) + "\n\n" +
+    "あなたの理想は何タイプ？\n" +
+    SITE_URL + "\n\n" +
+    "※暫定統計と仮定による試算"
   );
 }
 
-$("shareX").onclick=()=>{
-  const url="https://twitter.com/intent/tweet?text="+
+$("shareX").onclick = () => {
+  const url =
+    "https://twitter.com/intent/tweet?text=" +
     encodeURIComponent(shareText());
-  window.open(url,"_blank","noopener,noreferrer");
+
+  window.open(
+    url,
+    "_blank",
+    "noopener,noreferrer"
+  );
 };
 
-$("copyResult").onclick=async()=>{
-  const content=shareText();
+$("copyResult").onclick = async () => {
+  const content = shareText();
 
-  try{
+  try {
     await navigator.clipboard.writeText(content);
-    $("shareFeedback").textContent="結果をコピーしました";
-  }catch{
-    const textarea=document.createElement("textarea");
-    textarea.value=content;
-    textarea.style.cssText=
-      "position:fixed;left:5%;top:20%;"+
+
+    $("shareFeedback").textContent =
+      "結果をコピーしました";
+  } catch {
+    const textarea =
+      document.createElement("textarea");
+
+    textarea.value = content;
+    textarea.style.cssText =
+      "position:fixed;left:5%;top:20%;" +
       "width:90%;height:200px;z-index:9999";
+
     document.body.appendChild(textarea);
     textarea.focus();
     textarea.select();
-    $("shareFeedback").textContent=
+
+    $("shareFeedback").textContent =
       "表示された文章を選択してコピーしてください";
   }
 };
 
-/*
-=================================================
- 画面切り替え
-=================================================
-*/
+/* ===========================================
+   タブ切り替え
+=========================================== */
 
-function show(page){
+function show(page) {
+  const validPages = [
+    "input","result","method"
+  ];
+
+  if (!validPages.includes(page)) {
+    page = "input";
+  }
+
   $("input").classList.toggle(
     "hidden",page!=="input"
   );
+
   $("result").classList.toggle(
     "hidden",page!=="result"
   );
 
+  $("method").classList.toggle(
+    "hidden",page!=="method"
+  );
+
   document.querySelectorAll("[data-tab]")
-    .forEach(button=>{
-      button.classList.toggle(
-        "active",button.dataset.tab===page
+    .forEach(button => {
+      const active =
+        button.dataset.tab===page;
+
+      button.classList.toggle("active",active);
+
+      button.setAttribute(
+        "aria-current",
+        active ? "page" : "false"
       );
     });
 
-  if(page==="result"){
+  if (page==="result") {
     renderResults();
     renderAffiliate();
   }
 
   $("shareFeedback").textContent="";
-  window.scrollTo(0,0);
+
+  window.scrollTo({
+    top:0,
+    behavior:"instant"
+  });
 }
 
 document.querySelectorAll("[data-tab]")
-  .forEach(button=>{
-    button.onclick=()=>show(button.dataset.tab);
+  .forEach(button => {
+    button.onclick = () =>
+      show(button.dataset.tab);
   });
 
-$("go").onclick=()=>show("result");
-$("back").onclick=()=>show("input");
+$("go").onclick = () =>
+  show("result");
+
+$("back").onclick = () =>
+  show("input");
+
+$("openMethod").onclick = () =>
+  show("method");
+
+$("methodToInput").onclick = () =>
+  show("input");
 
 </script>
 </body>
