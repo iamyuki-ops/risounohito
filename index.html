@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="理想の条件を満たす人は日本に何人？公的統計と推計モデルで人数を試算するWebアプリ。">
+<meta name="description" content="理想の条件に合う人の人数を、統計値と明示した仮定に基づいて試算する参考用Webアプリ。">
 <title>理想の人、何人いる？</title>
 
 <style>
@@ -299,9 +299,8 @@ summary{padding:12px;font-weight:700;cursor:pointer}
   </div>
 
   <div class="panel">
-    <h2>04 婚姻歴・子ども</h2>
-    <div class="label">婚姻歴</div>
-    <div id="mar" class="chips"></div>
+    <h2>04 対象者の範囲・子ども</h2>
+    <p class="note muted">この版の推計対象は「結婚歴のない未婚者」です。離婚歴・死別歴のある人は、検証可能な基礎人数を用意できていないため推計対象に含めません。</p>
     <div class="label">子どもの有無</div>
     <div id="child" class="chips"></div>
   </div>
@@ -381,9 +380,10 @@ summary{padding:12px;font-weight:700;cursor:pointer}
     <details open>
       <summary>統計出典</summary>
       <div class="detail">
-        基礎人口は総務省統計局の
-        2025年国勢調査（不詳補完値）、
-        表4-3-1の全国・未婚者数を使用しています。
+        基礎人口の出典候補は総務省統計局の
+        2025年国勢調査です。下記の数値が元表の
+        該当セルと一致するかは、公開前に必ず照合してください。
+        このHTML内の数値だけでは、出典値の正確性を保証できません。
 
         <p>
           <a
@@ -411,7 +411,7 @@ summary{padding:12px;font-weight:700;cursor:pointer}
       <summary>人数の計算方法</summary>
       <div class="detail">
         年齢別の未婚者数を基準に、
-        婚姻歴、性別、国籍、居住地、身長、年収、
+        性別、国籍、居住地、身長、年収、
         学歴、雇用形態、子ども、たばこ、飲酒の
         条件を反映します。
 
@@ -437,28 +437,12 @@ summary{padding:12px;font-weight:700;cursor:pointer}
     </details>
 
     <details>
-      <summary>対象者・婚姻歴の扱い</summary>
+      <summary>対象者の範囲と限界</summary>
       <div class="detail">
-        対象年齢は18〜79歳です。
-
-        <p>
-          「未婚」は結婚歴のない人です。
-          「離婚歴あり」は離別、
-          「死別歴あり」は死別を想定しています。
-        </p>
-
-        <p>
-          婚姻歴の「指定なし」は、
-          結婚歴なし・離別・死別を含む、
-          現在配偶者がいない人を対象とします。
-          現在結婚している人は含みません。
-        </p>
-
-        <p>
-          離別・死別の人数は今回、
-          未婚者数に対する仮定上の比率から推定しています。
-          公的統計の実数ではありません。
-        </p>
+        対象年齢は18〜79歳です。基礎人口は「結婚歴のない未婚者」を想定しています。
+        離婚歴・死別歴のある人は、基礎人口と同じ定義で照合できるデータがこのモデルにないため、推計に含めません。
+        <p>年齢階級内では各年齢に均等配分し、身長・年収等は分布を仮定しています。年齢・性別・学歴・雇用・収入・居住地などの実際の相関を十分に再現していないため、条件を増やすほど誤差が大きくなる可能性があります。</p>
+        <p>結果は出会える確率や実際に条件を満たす人数の確定値ではありません。意思決定の根拠としてではなく、条件の厳しさを把握するための参考値として利用してください。</p>
       </div>
     </details>
 
@@ -627,26 +611,12 @@ const AGE_BASE = [
  すべてモデル仮定です。
  公表されている実数と混同しないでください。
 
- 将来的には年齢・性別・婚姻歴等の
+ 将来的には年齢・性別等の
  交差集計から取得した係数に置換します。
 ==================================================
 */
 
 const MODEL = {
-
-  // 未婚者数に対する離別・死別人口の比率
-  // 年齢階級ごとの仮定
-  divorcedRatio:[
-    0.001,0.005,0.025,0.08,0.17,
-    0.27,0.36,0.42,0.53,0.62,
-    0.75,0.83,0.95
-  ],
-
-  widowedRatio:[
-    0,0,0.0002,0.001,0.003,
-    0.008,0.02,0.04,0.075,
-    0.14,0.25,0.50,0.85
-  ],
 
   // 現在配偶者がいない人の男性割合
   maleShare:[
@@ -703,7 +673,7 @@ const MODEL = {
     female:[0.38,0.44,0.18]
   },
 
-  // 子どもがいる割合（婚姻歴別・仮定）
+  // 子どもがいる割合（未婚者についての仮定）
   child:{
     "未婚":0.04,
     "離婚歴あり":0.58,
@@ -841,9 +811,6 @@ function renderAffiliate(){
 const SCHEMA = {
   sex:["男性","女性","指定なし"],
   nat:["日本国籍","外国籍","指定なし"],
-  mar:[
-    "未婚","離婚歴あり","死別歴あり","指定なし"
-  ],
   child:["なし","あり","指定なし"],
   edu:[
     "中卒","高卒","専門卒","大学卒",
@@ -1311,33 +1278,7 @@ function nationalityRate(){
     : 1-MODEL.foreignShare;
 }
 
-function maritalPopulation(base,bandIndex,marital){
-
-  if(marital==="未婚")return base;
-
-  if(marital==="離婚歴あり"){
-    return base*MODEL.divorcedRatio[bandIndex];
-  }
-
-  if(marital==="死別歴あり"){
-    return base*MODEL.widowedRatio[bandIndex];
-  }
-
-  return 0;
-}
-
-function maritalChoices(){
-
-  if(chosen.mar.includes("指定なし")){
-    return [
-      "未婚","離婚歴あり","死別歴あり"
-    ];
-  }
-
-  return chosen.mar.slice();
-}
-
-function childRate(marital,age){
+function childRate(age){
 
   if(chosen.child.includes("指定なし")){
     return 1;
@@ -1348,7 +1289,7 @@ function childRate(marital,age){
   );
 
   const hasChild = clamp(
-    MODEL.child[marital]*ageFactor,
+    MODEL.child["未婚"]*ageFactor,
     0,1
   );
 
@@ -1373,7 +1314,7 @@ function ageSliceCount(band,lo,hi){
 /* ============================================
    複合条件の試算
 
-   1. 年齢×婚姻歴の基礎人口
+   1. 年齢階級別の未婚者基礎人口
    2. 性別で分割
    3. 国籍と居住地を反映
    4. 身長・学歴等の確率を適用
@@ -1402,102 +1343,36 @@ function calculateEstimate(){
 
     const start = Math.max(minAge,band.from);
     const end = Math.min(maxAge,band.to);
-
     if(start>end)return;
 
-    const perYear = band.count/
-      (band.to-band.from+1);
+    // 年齢階級内の人数を各年齢に均等配分する近似
+    const perYear = band.count/(band.to-band.from+1);
 
     for(let age=start;age<=end;age++){
+      const base = perYear;
+      baseTotal += base;
 
-      for(const marital of maritalChoices()){
+      for(const sex of ["male","female"]){
+        if(!chosen.sex.includes("指定なし") &&
+           !chosen.sex.includes(sex==="male" ? "男性" : "女性")) continue;
 
-        const base = maritalPopulation(
-          perYear,
-          bandIndex,
-          marital
-        );
+        const maleShare = MODEL.maleShare[bandIndex];
+        const sexRatio = sex==="male" ? maleShare : 1-maleShare;
+        const height = heightRate(sex,age);
+        const edu = selectedRate("edu",eduLabels,MODEL.edu[sex]);
+        const smoke = selectedRate("smoke",smokeLabels,[1-MODEL.smoke[sex],MODEL.smoke[sex]]);
+        const drink = selectedRate("drink",drinkLabels,MODEL.drink[sex]);
+        const child = childRate(age);
+        const common = base*sexRatio*region*nationality*height*edu*smoke*drink*child;
 
-        baseTotal += base;
-
-        for(const sex of ["male","female"]){
-
-          if(
-            !chosen.sex.includes("指定なし") &&
-            !chosen.sex.includes(
-              sex==="male" ? "男性" : "女性"
-            )
-          ){
-            continue;
-          }
-
-          const maleShare =
-            MODEL.maleShare[bandIndex];
-
-          const sexRatio =
-            sex==="male"
-              ? maleShare
-              : 1-maleShare;
-
-          const height = heightRate(sex,age);
-
-          const edu = selectedRate(
-            "edu",
-            eduLabels,
-            MODEL.edu[sex]
-          );
-
-          const smoke = selectedRate(
-            "smoke",
-            smokeLabels,
-            [
-              1-MODEL.smoke[sex],
-              MODEL.smoke[sex]
-            ]
-          );
-
-          const drink = selectedRate(
-            "drink",
-            drinkLabels,
-            MODEL.drink[sex]
-          );
-
-          const child = childRate(
-            marital,age
-          );
-
-          const common =
-            base*
-            sexRatio*
-            region*
-            nationality*
-            height*
-            edu*
-            smoke*
-            drink*
-            child;
-
-          // 年収と雇用形態は一緒に計算する
-          // ため、単純な二重掛けを避ける
-          let employmentIncome = 0;
-
-          for(let j=0;j<jobLabels.length;j++){
-
-            const selectedJob =
-              chosen.job.includes("指定なし") ||
-              chosen.job.includes(jobLabels[j]);
-
-            if(!selectedJob)continue;
-
-            const jobProb = MODEL.job[sex][j];
-
-            employmentIncome +=
-              jobProb*
-              incomeRate(sex,age,j);
-          }
-
-          total += common*employmentIncome;
+        // 雇用形態と年収を同時に評価する
+        let employmentIncome = 0;
+        for(let j=0;j<jobLabels.length;j++){
+          const selectedJob = chosen.job.includes("指定なし") || chosen.job.includes(jobLabels[j]);
+          if(!selectedJob)continue;
+          employmentIncome += MODEL.job[sex][j]*incomeRate(sex,age,j);
         }
+        total += common*employmentIncome;
       }
     }
   });
@@ -1547,14 +1422,13 @@ function calculate(){
   const notes = [];
 
   notes.push(
-    "2025年国勢調査の未婚者数を基礎に、" +
-    "複数条件を反映した試算です。"
+    "結婚歴のない未婚者を対象にした参考試算です。" +
+    "離婚歴・死別歴のある人は含めていません。"
   );
 
   notes.push(
-    "年齢・性別などによって割合が変わる" +
-    "モデルですが、公的統計で検証されていない" +
-    "仮定の係数を含みます。"
+    "性別・身長・年収・学歴・雇用形態などには仮定値を使い、" +
+    "複数属性の相関を十分に再現していません。"
   );
 
   if(
@@ -1562,13 +1436,13 @@ function calculate(){
     selectedPrefs.size<47
   ){
     notes.push(
-      "都道府県は概算構成比で配分しています。"
+      "都道府県は一般人口の概算構成比で配分しており、未婚者の地域別実数ではありません。"
     );
   }
 
   notes.push(
-    "実際に条件を満たす人数や" +
-    "出会える確率を保証するものではありません。"
+    "基礎データの原表照合と推計精度の検証は未完了です。" +
+    "確定人数や出会える確率として扱わないでください。"
   );
 
   $("resultNote").textContent = notes.join(" ");
